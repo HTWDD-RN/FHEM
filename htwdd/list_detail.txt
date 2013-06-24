@@ -1,0 +1,20 @@
+fhem> list wz_dimLampe_2
+Internals:
+ ATTR room
+ DEFroom wz_dimLampe2
+NAME wz_dimLampe_2
+ NR 59
+ NTFY_ORDER 50-w
+z_dimLampe_2
+ STATEdefined
+TYPE structure
+
+ Content:
+wz_dimLampe2 1
+
+Attributes:
+eventMap on:100% o
+ff:0%
+icon icoLicht
+room Beleuchtung
+ webCmd dim

@@ -1,0 +1,161 @@
+	body { 
+		margin:0; 
+		padding:0; 
+		background: url(img/bgnoise.png); 
+	}
+/*	div { border: none solid #888; }*/
+
+	#wrap { 
+/*		width:1340px; */
+		height:1000px; 
+		position:relative; 
+		top:30px; 
+		float:center; 
+/*		background-color:#B2B2B2;  */
+		margin-left:60px;
+		margin-right:auto;
+	}
+	
+	#titel_room { 
+		width:400px; 
+		height:60px; 
+		position:relative;  
+		float: left; 
+		margin-right: 38px; /* mögliche Farben: A3C1FF; E5E5E5; FFFFFF */
+		background:-webkit-gradient(linear,left bottom,left top,from(#0A1C42),to(#E5E5E5)); /* Chrome, Safari */
+		border: 3px ridge silver;
+		-webkit-border-radius:50px 50px 0px 0px; /* Chrome, Safari */
+		-moz-border-radius:50px 50px 0px 0px; /* Firefox */
+		box-shadow: 4px 4px 5px #000000;		
+	}
+
+	.room { 
+		width:400px; 
+		height:422px; 
+		position:relative; 
+		float: left; 
+		margin-top: 38px; 
+		margin-right: 38px; 
+		display: none;		
+	}
+	
+	#content_room { 
+		width:400px; 
+		height:360px; 
+		position:relative; 
+		margin-top: 61px; 
+/*		background-color:#0A1C42; */
+		background: -webkit-gradient(linear, 0% 90%, 0% 100%, from(#0A1C42), to(#E5E5E5), color-stop(1,#E5E5E5));
+		border: 3px ridge silver;
+		box-shadow: 4px 4px 5px #000000;
+	}
+	
+	#titel_align { 
+		position:relative; 
+		top:30px; 
+		text-align: center;
+		color: #FFFFFF;
+		font-size:150%;
+		font-weight:bold;
+	}
+	
+	#room1_device_row1 { 
+		width:110px; 
+		height:70px;
+		position:relative; 
+		margin-top: 15px; 
+		left:13px; 
+		float: left; 
+		margin-right: 20px; 
+		border: 1px solid #888;
+		-webkit-border-radius:5px 5px 5px 5px; /* Chrome, Safari */
+		-moz-border-radius:5px 5px 0px 0px; /* Firefox */
+	}
+
+/* Button Farben? 2650A5 */
+	#ON {
+		-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #2e2ec7), color-stop(1, #082ff2) );
+		background:-moz-linear-gradient( center top, #2e2ec7 5%, #082ff2 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e2ec7', endColorstr='#082ff2');
+		background-color:#2e2ec7;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		color:#737373;
+		font-family:arial;
+		font-size:12px;
+		font-weight:bold;
+		padding:5px 8px;
+		text-decoration:none;
+		text-shadow:1px 1px 0px #ffffff;
+	}
+	#ON:hover {
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #082ff2), color-stop(1, #2e2ec7) );
+		background:-moz-linear-gradient( center top, #082ff2 5%, #2e2ec7 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#082ff2', endColorstr='#2e2ec7');
+		background-color:#082ff2;
+	}
+	#ON:active {
+		position:relative;
+		top:1px;
+	}
+	#OFF {
+		-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #2e2ec7), color-stop(1, #082ff2) );
+		background:-moz-linear-gradient( center top, #2e2ec7 5%, #082ff2 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e2ec7', endColorstr='#082ff2');
+		background-color:#2e2ec7;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		color:#737373;
+		font-family:arial;
+		font-size:12px;
+		font-weight:bold;
+		padding:5px 6px;
+		text-decoration:none;
+		text-shadow:1px 1px 0px #ffffff;
+	}
+	#OFF:hover {
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #082ff2), color-stop(1, #2e2ec7) );
+		background:-moz-linear-gradient( center top, #082ff2 5%, #2e2ec7 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#082ff2', endColorstr='#2e2ec7');
+		background-color:#082ff2;
+	}
+	#OFF:active {
+		position:relative;
+		top:1px;
+	}
+	
+	#div_ON {
+		width:10px; 
+		height:10px; 
+		position:relative; 
+		margin-top: 7px; 
+		margin-left: 9px; 
+	}
+	
+	#div_OFF {
+		width:10px; 
+		height:10px; 
+		position:relative; 
+		margin-top: 21px; 
+		margin-left: 9px; 
+	}
+	
+	#icon {
+		width:32px; 
+		height:19px; 
+		position:relative; 
+		margin-top: -21px; 
+		margin-left: 60px; 
+	}

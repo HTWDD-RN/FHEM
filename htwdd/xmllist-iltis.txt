@@ -1,0 +1,841 @@
+<FHZINFO>
+	<Global_LIST>
+		<Global name="global" state="&lt;no definition&gt;" sets="" attrs="room group comment alias eventMap archivecmd apiversion archivedir configfile lastinclude logfile modpath nrarchive pidfilename port statefile title userattr verbose:1,2,3,4,5 mseclog version nofork logdir holiday2we autoload_undefined_devices dupTimeout latitude longitude backupcmd backupdir backupsymlink backup_before_update exclude_from_update motd updatebranch  fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="&lt;no definition&gt;"/>
+			<INT key="NAME" value="global"/>
+			<INT key="NR" value="1"/>
+			<INT key="STATE" value="&lt;no definition&gt;"/>
+			<INT key="TYPE" value="Global"/>
+			<INT key="currentlogfile" value="./log/fhem-2013-06.log"/>
+			<INT key="logfile" value="./log/fhem-%Y-%m.log"/>
+			<ATTR key="autoload_undefined_devices" value="1"/>
+			<ATTR key="configfile" value="fhem.cfg"/>
+			<ATTR key="logfile" value="./log/fhem-%Y-%m.log"/>
+			<ATTR key="modpath" value="."/>
+			<ATTR key="motd" value="SecurityCheck:
+
+WEB,WEBphone,WEBtablet has no basicAuth attribute.
+telnetPort has no password/globalpassword attribute.
+
+Restart fhem for a new check if the problem is fixed,
+or set the global attribute motd to none to supress this message.
+"/>
+			<ATTR key="statefile" value="./log/fhem.save"/>
+			<ATTR key="userattr" value="fp_Grundriss icon room_map structexclude webCmd"/>
+			<ATTR key="verbose" value="3"/>
+			<ATTR key="version" value="Fhem 5.3 (DEVELOPMENT), $Id: fhem.pl 1996 2012-10-20 07:11:56Z rudolfkoenig $"/>
+		</Global>
+	</Global_LIST>
+	<CUL_LIST>
+		<CUL name="CUL_0" state="disconnected" sets="bWidth file freq hmPairForSec hmPairSerial led patable rAmpl raw sens time" attrs="room group comment alias eventMap do_not_notify:1,0 dummy:1,0 showtime:1,0 model:CUL,CUN,CUR loglevel:0,1,2,3,4,5,6 sendpool addvaltrigger rfmode:SlowRF,HomeMatic,MAX hmId hmProtocolEvents:0_off,1_dump,2_dumpFull,3_dumpTrigger fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CMDS" value="BCFiAGMRTVWXefmltux"/>
+			<INT key="CUL_0_MSGCNT" value="7967"/>
+			<INT key="CUL_0_TIME" value="2013-06-06 15:43:01"/>
+			<INT key="Clients" value=":CUL_HM:HMS:CUL_IR:"/>
+			<INT key="DEF" value="/dev/ttyACM0@9600 1034"/>
+			<INT key="DeviceName" value="/dev/ttyACM0@9600"/>
+			<INT key="FHTID" value="1034"/>
+			<INT key="HM_CMDNR" value="11"/>
+			<INT key="NAME" value="CUL_0"/>
+			<INT key="NR" value="30"/>
+			<INT key="PARTIAL" value=""/>
+			<INT key="RAWMSG" value="A0C9B86701B59A600000000DB342A"/>
+			<INT key="RSSI" value="-53"/>
+			<INT key="STATE" value="disconnected"/>
+			<INT key="TYPE" value="CUL"/>
+			<INT key="VERSION" value="V 1.46 CUL868"/>
+			<INT key="initString" value="X21
+Ar"/>
+			<ATTR key="rfmode" value="HomeMatic"/>
+			<STATE key="cmds" value=" B C F i A G M R T V W X e f m l t u x" measured="2013-06-05 17:14:09"/>
+		</CUL>
+		<CUL name="CUL_1" state="disconnected" sets="bWidth file freq hmPairForSec hmPairSerial led patable rAmpl raw sens time" attrs="room group comment alias eventMap do_not_notify:1,0 dummy:1,0 showtime:1,0 model:CUL,CUN,CUR loglevel:0,1,2,3,4,5,6 sendpool addvaltrigger rfmode:SlowRF,HomeMatic,MAX hmId hmProtocolEvents:0_off,1_dump,2_dumpFull,3_dumpTrigger fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CMDS" value="BCFiAGMRTVWXefmltux"/>
+			<INT key="CUL_1_MSGCNT" value="1808"/>
+			<INT key="CUL_1_TIME" value="2013-06-06 15:41:56"/>
+			<INT key="Clients" value=":FS20:FHT:FHT8V:KS300:USF1000:BS:HMS: :CUL_EM:CUL_WS:CUL_FHTTK:CUL_RFR:CUL_HOERMANN: :ESA2000:CUL_IR:CUL_TX"/>
+			<INT key="DEF" value="/dev/ttyACM1@9600 1134"/>
+			<INT key="DeviceName" value="/dev/ttyACM1@9600"/>
+			<INT key="FHTID" value="1134"/>
+			<INT key="NAME" value="CUL_1"/>
+			<INT key="NR" value="31"/>
+			<INT key="PARTIAL" value=""/>
+			<INT key="RAWMSG" value="TA64FD08121"/>
+			<INT key="RSSI" value="-57.5"/>
+			<INT key="STATE" value="disconnected"/>
+			<INT key="TYPE" value="CUL"/>
+			<INT key="VERSION" value="V 1.46 CUL868"/>
+			<INT key="initString" value="X21"/>
+			<STATE key="cmds" value=" B C F i A G M R T V W X e f m l t u x" measured="2013-06-05 17:14:09"/>
+		</CUL>
+		<CUL name="CUL_2" state="disconnected" sets="bWidth file freq hmPairForSec hmPairSerial led patable rAmpl raw sens time" attrs="room group comment alias eventMap do_not_notify:1,0 dummy:1,0 showtime:1,0 model:CUL,CUN,CUR loglevel:0,1,2,3,4,5,6 sendpool addvaltrigger rfmode:SlowRF,HomeMatic,MAX hmId hmProtocolEvents:0_off,1_dump,2_dumpFull,3_dumpTrigger fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CMDS" value="BCFiAGMRTVWXefmltux"/>
+			<INT key="CUL_2_MSGCNT" value="7156"/>
+			<INT key="CUL_2_TIME" value="2013-06-05 17:13:38"/>
+			<INT key="Clients" value=":FS20:FHT:FHT8V:KS300:USF1000:BS:HMS: :CUL_EM:CUL_WS:CUL_FHTTK:CUL_RFR:CUL_HOERMANN: :ESA2000:CUL_IR:CUL_TX"/>
+			<INT key="DEF" value="/dev/ttyACM2@9600 1234"/>
+			<INT key="DeviceName" value="/dev/ttyACM2@9600"/>
+			<INT key="FHTID" value="1234"/>
+			<INT key="NAME" value="CUL_2"/>
+			<INT key="NR" value="32"/>
+			<INT key="NR_CMD_LAST_H" value="1"/>
+			<INT key="PARTIAL" value=""/>
+			<INT key="RAWMSG" value="TA64FD08130"/>
+			<INT key="RSSI" value="-50"/>
+			<INT key="STATE" value="disconnected"/>
+			<INT key="TYPE" value="CUL"/>
+			<INT key="VERSION" value="V 1.46 CUL868"/>
+			<INT key="initString" value="X21"/>
+			<STATE key="cmds" value=" B C F i A G M R T V W X e f m l t u x" measured="2013-05-25 14:11:22"/>
+		</CUL>
+	</CUL_LIST>
+	<FHEMWEB_LIST>
+		<FHEMWEB name="FHEMWEB:141.56.26.15:9336" state="Connected" sets="rereadicons" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 webname fwmodpath fwcompress:0,1 plotmode:gnuplot,gnuplot-scroll,SVG plotsize refresh touchpad smallscreen plotfork basicAuth basicAuthMsg stylesheetPrefix iconpath hiddenroom HTTPS longpoll:1,0 redirectCmds:0,1 reverseLogs:0,1 allowfrom  fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BUF" value=""/>
+			<INT key="FD" value="5"/>
+			<INT key="NAME" value="FHEMWEB:141.56.26.15:9336"/>
+			<INT key="NR" value="13822"/>
+			<INT key="SNAME" value="WEB"/>
+			<INT key="STATE" value="Connected"/>
+			<INT key="TEMPORARY" value="1"/>
+			<INT key="TYPE" value="FHEMWEB"/>
+			<ATTR key="room" value="hidden"/>
+		</FHEMWEB>
+		<FHEMWEB name="FHEMWEB:141.56.26.15:9337" state="Connected" sets="rereadicons" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 webname fwmodpath fwcompress:0,1 plotmode:gnuplot,gnuplot-scroll,SVG plotsize refresh touchpad smallscreen plotfork basicAuth basicAuthMsg stylesheetPrefix iconpath hiddenroom HTTPS longpoll:1,0 redirectCmds:0,1 reverseLogs:0,1 allowfrom  fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BUF" value=""/>
+			<INT key="FD" value="11"/>
+			<INT key="NAME" value="FHEMWEB:141.56.26.15:9337"/>
+			<INT key="NR" value="13823"/>
+			<INT key="SNAME" value="WEB"/>
+			<INT key="STATE" value="Connected"/>
+			<INT key="TEMPORARY" value="1"/>
+			<INT key="TYPE" value="FHEMWEB"/>
+			<ATTR key="room" value="hidden"/>
+		</FHEMWEB>
+		<FHEMWEB name="FHEMWEB:141.56.26.15:9340" state="Connected" sets="rereadicons" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 webname fwmodpath fwcompress:0,1 plotmode:gnuplot,gnuplot-scroll,SVG plotsize refresh touchpad smallscreen plotfork basicAuth basicAuthMsg stylesheetPrefix iconpath hiddenroom HTTPS longpoll:1,0 redirectCmds:0,1 reverseLogs:0,1 allowfrom  fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BUF" value=""/>
+			<INT key="FD" value="19"/>
+			<INT key="NAME" value="FHEMWEB:141.56.26.15:9340"/>
+			<INT key="NR" value="13826"/>
+			<INT key="SNAME" value="WEB"/>
+			<INT key="STATE" value="Connected"/>
+			<INT key="TEMPORARY" value="1"/>
+			<INT key="TYPE" value="FHEMWEB"/>
+			<ATTR key="room" value="hidden"/>
+		</FHEMWEB>
+		<FHEMWEB name="WEB" state="Initialized" sets="rereadicons" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 webname fwmodpath fwcompress:0,1 plotmode:gnuplot,gnuplot-scroll,SVG plotsize refresh touchpad smallscreen plotfork basicAuth basicAuthMsg stylesheetPrefix iconpath hiddenroom HTTPS longpoll:1,0 redirectCmds:0,1 reverseLogs:0,1 allowfrom  fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CONNECTS" value="45"/>
+			<INT key="DEF" value="8083 global"/>
+			<INT key="FD" value="7"/>
+			<INT key="NAME" value="WEB"/>
+			<INT key="NR" value="5"/>
+			<INT key="NTFY_ORDER" value="50-WEB"/>
+			<INT key="PORT" value="8083"/>
+			<INT key="STATE" value="Initialized"/>
+			<INT key="TYPE" value="FHEMWEB"/>
+			<ATTR key="hiddenroom" value="Unsorted"/>
+			<ATTR key="stylesheetPrefix" value="dark"/>
+		</FHEMWEB>
+		<FHEMWEB name="WEBphone" state="Initialized" sets="rereadicons" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 webname fwmodpath fwcompress:0,1 plotmode:gnuplot,gnuplot-scroll,SVG plotsize refresh touchpad smallscreen plotfork basicAuth basicAuthMsg stylesheetPrefix iconpath hiddenroom HTTPS longpoll:1,0 redirectCmds:0,1 reverseLogs:0,1 allowfrom  fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="8084 global"/>
+			<INT key="FD" value="8"/>
+			<INT key="NAME" value="WEBphone"/>
+			<INT key="NR" value="7"/>
+			<INT key="NTFY_ORDER" value="50-WEBphone"/>
+			<INT key="PORT" value="8084"/>
+			<INT key="STATE" value="Initialized"/>
+			<INT key="TYPE" value="FHEMWEB"/>
+			<ATTR key="smallscreen" value="1"/>
+		</FHEMWEB>
+		<FHEMWEB name="WEBtablet" state="Initialized" sets="rereadicons" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 webname fwmodpath fwcompress:0,1 plotmode:gnuplot,gnuplot-scroll,SVG plotsize refresh touchpad smallscreen plotfork basicAuth basicAuthMsg stylesheetPrefix iconpath hiddenroom HTTPS longpoll:1,0 redirectCmds:0,1 reverseLogs:0,1 allowfrom  fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="8085 global"/>
+			<INT key="FD" value="9"/>
+			<INT key="NAME" value="WEBtablet"/>
+			<INT key="NR" value="9"/>
+			<INT key="NTFY_ORDER" value="50-WEBtablet"/>
+			<INT key="PORT" value="8085"/>
+			<INT key="STATE" value="Initialized"/>
+			<INT key="TYPE" value="FHEMWEB"/>
+			<ATTR key="touchpad" value="1"/>
+		</FHEMWEB>
+	</FHEMWEB_LIST>
+	<CUL_FHTTK_LIST>
+		<CUL_FHTTK name="CUL_FHTTK_a64fd0" state="Open" sets="" attrs="room group comment alias eventMap IODev do_not_notify:1,0 ignore:0,1 showtime:0,1 model:FHT80TF loglevel:0,1,2,3,4,5,6 fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CODE" value="a64fd0"/>
+			<INT key="CUL_1_MSGCNT" value="958"/>
+			<INT key="CUL_1_RAWMSG" value="TA64FD0011E"/>
+			<INT key="CUL_1_RSSI" value="-59"/>
+			<INT key="CUL_1_TIME" value="2013-06-06 15:41:55"/>
+			<INT key="CUL_2_MSGCNT" value="3749"/>
+			<INT key="CUL_2_RAWMSG" value="TA64FD0012F"/>
+			<INT key="CUL_2_RSSI" value="-50.5"/>
+			<INT key="CUL_2_TIME" value="2013-06-05 17:13:37"/>
+			<INT key="DEF" value="a64fd0"/>
+			<INT key="LASTIODev" value="CUL_1"/>
+			<INT key="MSGCNT" value="4707"/>
+			<INT key="NAME" value="CUL_FHTTK_a64fd0"/>
+			<INT key="NR" value="70"/>
+			<INT key="OPEN" value="1"/>
+			<INT key="PREVSTATE" value="Open"/>
+			<INT key="PREVTIMESTAMP" value="1370525859"/>
+			<INT key="STATE" value="Open"/>
+			<INT key="TYPE" value="CUL_FHTTK"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="room" value="CUL_FHTTK"/>
+			<STATE key="Battery" value="ok" measured="2013-06-06 15:41:55"/>
+			<STATE key="Previous" value="" measured=""/>
+			<STATE key="Reliability" value="ok" measured="2013-06-06 15:41:55"/>
+			<STATE key="Window" value="Open" measured="2013-06-06 15:41:55"/>
+		</CUL_FHTTK>
+	</CUL_FHTTK_LIST>
+	<CUL_HM_LIST>
+		<CUL_HM name="CUL_HM_THSensor_1B59A6" state="T: 21.9 H: 52" sets="actiondetect getConfig getRegRaw getdevicepair getpair pair raw regRaw regSet reset sign statusRequest unpair virtual" attrs="room group comment alias eventMap IODev do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 hmClass:receiver,sender serialNr firmware devInfo rawToReadable unit chanNo device peerList actCycle actStatus protCmdPend protLastRcv protSndCnt protSndLast protCmdDel protNackCnt protNackLast protResndFailLast protResndLast protResndFailCnt protResndCnt protToutRespLast protToutRespCnt channel_01 channel_02 channel_03 channel_04 channel_05 channel_06 channel_07 channel_08 channel_09 channel_0A channel_0B channel_0C channel_0D channel_0E channel_0F channel_10 channel_11 channel_12 channel_13 channel_14 channel_15 channel_16 channel_17 channel_18  model:ASH550,ASH550I,CMM,DORMA_BRC-H,DORMA_RC-H,DORMA_atent,HM-CC-SCD,HM-CC-TC,HM-CC-VD,HM-Dis-TD-T,HM-LC-BL1-FM,HM-LC-BL1-PB-FM,HM-LC-BL1-SM,HM-LC-Bl1PBU-FM,HM-LC-DDC1-PCB,HM-LC-DIM1L-CV,HM-LC-DIM1L-PL,HM-LC-DIM1T-CV,HM-LC-DIM1T-FM,HM-LC-DIM1T-PL,HM-LC-DIM2L-CV,HM-LC-DIM2L-SM,HM-LC-DIM2T-SM,HM-LC-Dim1PWM-CV,HM-LC-Dim1TPBU-FM,HM-LC-SW1-BA-PCB,HM-LC-SW1-FM,HM-LC-SW1-PB-FM,HM-LC-SW1-PL,HM-LC-SW1-PL-OM54,HM-LC-SW1-SM,HM-LC-SW1-SM-ATMEGA168,HM-LC-SW2-DR,HM-LC-SW2-FM,HM-LC-SW2-PB-FM,HM-LC-SW2-SM,HM-LC-SW4-DR,HM-LC-SW4-PCB,HM-LC-SW4-SM,HM-LC-SW4-SM-ATMEGA168,HM-LC-SW4-WM,HM-LC-Sw1PBU-FM,HM-OU-CF-PL,HM-OU-CFM-PL,HM-OU-LED16,HM-PB-2-WM,HM-PB-2-WM55,HM-PB-4-WM,HM-PB-4DIS-WM,HM-PBI-4-FM,HM-RC-12,HM-RC-12-B,HM-RC-12-SW,HM-RC-19,HM-RC-19-B,HM-RC-19-SW,HM-RC-4,HM-RC-4-B,HM-RC-KEY3,HM-RC-KEY3-B,HM-RC-P1,HM-RC-SEC3,HM-RC-SEC3-B,HM-SCI-3-FM,HM-SEC-KEY,HM-SEC-KEY-O,HM-SEC-KEY-S,HM-SEC-MDIR,HM-SEC-RHS,HM-SEC-SC,HM-SEC-SD,HM-SEC-SFA-SM,HM-SEC-TIS,HM-SEC-WDS,HM-SEC-WIN,HM-SEN-EP,HM-SEN-MDIR-SM,HM-SWI-3-FM,HM-Sec-Cen,HM-Sen-MDIR-O,HM-WDC7000,HM-WDC7000,HM-WDS10-TH-O,HM-WDS100-C6-O,HM-WDS20-TH-O,HM-WDS30-T-O,HM-WDS40-TH-I,IS-WDS-TH-OD-S-R3,KFM-Display,KFM-Sensor,KS550,ROTO_ZEL-STG-RM-DWT-10,ROTO_ZEL-STG-RM-FDK,ROTO_ZEL-STG-RM-FEP-230V,ROTO_ZEL-STG-RM-FSA,ROTO_ZEL-STG-RM-FST-UP4,ROTO_ZEL-STG-RM-FWT,ROTO_ZEL-STG-RM-HS-4,ROTO_ZEL-STG-RM-WT-2,Roto_ZEL-STG-RM-FFK,Roto_ZEL-STG-RM-FSS-UP3,S550IA,Schueco_263-1350,Schueco_263-144,Schueco_263-145,Schueco_263-146,Schueco_263-155,Schueco_263-157,Schueco_263-158,Schueco_263-160,Schueco_263-162,WS888 subType:AlarmControl,ClimateControl,KFM100,THSensor,blindActuator,dimmer,keyMatic,motionDetector,outputUnit,pushButton,remote,sensor,smokeDetector,swi,switch,thermostat,threeStateSensor,winMatic fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CUL_0_MSGCNT" value="7945"/>
+			<INT key="CUL_0_RAWMSG" value="A0C9B86701B59A600000000DB342A"/>
+			<INT key="CUL_0_RSSI" value="-53"/>
+			<INT key="CUL_0_TIME" value="2013-06-06 15:43:01"/>
+			<INT key="DEF" value="1B59A6"/>
+			<INT key="LASTIODev" value="CUL_0"/>
+			<INT key="MSGCNT" value="7945"/>
+			<INT key="NAME" value="CUL_HM_THSensor_1B59A6"/>
+			<INT key="NR" value="66"/>
+			<INT key="STATE" value="T: 21.9 H: 52"/>
+			<INT key="TYPE" value="CUL_HM"/>
+			<INT key="lastMsg" value="No:9B - t:70 s:1B59A6 d:000000 00DB34"/>
+			<INT key="IODev" value="CUL_0"/>
+			<ATTR key="devInfo" value="030100"/>
+			<ATTR key="firmware" value="1.2"/>
+			<ATTR key="hmClass" value="sender"/>
+			<ATTR key="model" value="HM-WDS10-TH-O"/>
+			<ATTR key="protCmdPend" value="3 CMDs pending"/>
+			<ATTR key="protLastRcv" value="2013-06-06 15:43:01"/>
+			<ATTR key="room" value="CUL_HM"/>
+			<ATTR key="serialNr" value="JEQ0089382"/>
+			<ATTR key="subType" value="THSensor"/>
+			<STATE key="humidity" value="52" measured="2013-06-06 15:43:01"/>
+			<STATE key="state" value="T: 21.9 H: 52" measured="2013-06-06 15:43:01"/>
+			<STATE key="temperature" value="21.9" measured="2013-06-06 15:43:01"/>
+		</CUL_HM>
+		<CUL_HM name="CUL_HM_switch_1A5D14" state="on" sets="actiondetect getConfig getRegRaw getdevicepair getpair off on on-for-timer on-till pair raw regRaw regSet reset sign statusRequest toggle unpair virtual" attrs="room group comment alias eventMap IODev do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 hmClass:receiver,sender serialNr firmware devInfo rawToReadable unit chanNo device peerList actCycle actStatus protCmdPend protLastRcv protSndCnt protSndLast protCmdDel protNackCnt protNackLast protResndFailLast protResndLast protResndFailCnt protResndCnt protToutRespLast protToutRespCnt channel_01 channel_02 channel_03 channel_04 channel_05 channel_06 channel_07 channel_08 channel_09 channel_0A channel_0B channel_0C channel_0D channel_0E channel_0F channel_10 channel_11 channel_12 channel_13 channel_14 channel_15 channel_16 channel_17 channel_18  model:ASH550,ASH550I,CMM,DORMA_BRC-H,DORMA_RC-H,DORMA_atent,HM-CC-SCD,HM-CC-TC,HM-CC-VD,HM-Dis-TD-T,HM-LC-BL1-FM,HM-LC-BL1-PB-FM,HM-LC-BL1-SM,HM-LC-Bl1PBU-FM,HM-LC-DDC1-PCB,HM-LC-DIM1L-CV,HM-LC-DIM1L-PL,HM-LC-DIM1T-CV,HM-LC-DIM1T-FM,HM-LC-DIM1T-PL,HM-LC-DIM2L-CV,HM-LC-DIM2L-SM,HM-LC-DIM2T-SM,HM-LC-Dim1PWM-CV,HM-LC-Dim1TPBU-FM,HM-LC-SW1-BA-PCB,HM-LC-SW1-FM,HM-LC-SW1-PB-FM,HM-LC-SW1-PL,HM-LC-SW1-PL-OM54,HM-LC-SW1-SM,HM-LC-SW1-SM-ATMEGA168,HM-LC-SW2-DR,HM-LC-SW2-FM,HM-LC-SW2-PB-FM,HM-LC-SW2-SM,HM-LC-SW4-DR,HM-LC-SW4-PCB,HM-LC-SW4-SM,HM-LC-SW4-SM-ATMEGA168,HM-LC-SW4-WM,HM-LC-Sw1PBU-FM,HM-OU-CF-PL,HM-OU-CFM-PL,HM-OU-LED16,HM-PB-2-WM,HM-PB-2-WM55,HM-PB-4-WM,HM-PB-4DIS-WM,HM-PBI-4-FM,HM-RC-12,HM-RC-12-B,HM-RC-12-SW,HM-RC-19,HM-RC-19-B,HM-RC-19-SW,HM-RC-4,HM-RC-4-B,HM-RC-KEY3,HM-RC-KEY3-B,HM-RC-P1,HM-RC-SEC3,HM-RC-SEC3-B,HM-SCI-3-FM,HM-SEC-KEY,HM-SEC-KEY-O,HM-SEC-KEY-S,HM-SEC-MDIR,HM-SEC-RHS,HM-SEC-SC,HM-SEC-SD,HM-SEC-SFA-SM,HM-SEC-TIS,HM-SEC-WDS,HM-SEC-WIN,HM-SEN-EP,HM-SEN-MDIR-SM,HM-SWI-3-FM,HM-Sec-Cen,HM-Sen-MDIR-O,HM-WDC7000,HM-WDC7000,HM-WDS10-TH-O,HM-WDS100-C6-O,HM-WDS20-TH-O,HM-WDS30-T-O,HM-WDS40-TH-I,IS-WDS-TH-OD-S-R3,KFM-Display,KFM-Sensor,KS550,ROTO_ZEL-STG-RM-DWT-10,ROTO_ZEL-STG-RM-FDK,ROTO_ZEL-STG-RM-FEP-230V,ROTO_ZEL-STG-RM-FSA,ROTO_ZEL-STG-RM-FST-UP4,ROTO_ZEL-STG-RM-FWT,ROTO_ZEL-STG-RM-HS-4,ROTO_ZEL-STG-RM-WT-2,Roto_ZEL-STG-RM-FFK,Roto_ZEL-STG-RM-FSS-UP3,S550IA,Schueco_263-1350,Schueco_263-144,Schueco_263-145,Schueco_263-146,Schueco_263-155,Schueco_263-157,Schueco_263-158,Schueco_263-160,Schueco_263-162,WS888 subType:AlarmControl,ClimateControl,KFM100,THSensor,blindActuator,dimmer,keyMatic,motionDetector,outputUnit,pushButton,remote,sensor,smokeDetector,swi,switch,thermostat,threeStateSensor,winMatic fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CFGFN" value=""/>
+			<INT key="CUL_0_MSGCNT" value="16"/>
+			<INT key="CUL_0_RAWMSG" value="A0E0B80021A5D14F110340101C8003630"/>
+			<INT key="CUL_0_RSSI" value="-50"/>
+			<INT key="CUL_0_TIME" value="2013-05-30 16:11:29"/>
+			<INT key="DEF" value="1A5D14"/>
+			<INT key="LASTIODev" value="CUL_0"/>
+			<INT key="MSGCNT" value="16"/>
+			<INT key="NAME" value="CUL_HM_switch_1A5D14"/>
+			<INT key="NR" value="5126"/>
+			<INT key="STATE" value="on"/>
+			<INT key="TYPE" value="CUL_HM"/>
+			<INT key="lastMsg" value="No:0B - t:02 s:1A5D14 d:F11034 0101C80036"/>
+			<INT key="IODev" value="CUL_0"/>
+			<ATTR key="devInfo" value="010100"/>
+			<ATTR key="firmware" value="1.9"/>
+			<ATTR key="hmClass" value="receiver"/>
+			<ATTR key="model" value="HM-LC-SW1-PL"/>
+			<ATTR key="protCmdDel" value="4"/>
+			<ATTR key="protLastRcv" value="2013-05-30 16:11:29"/>
+			<ATTR key="protResndCnt" value="10"/>
+			<ATTR key="protResndFailCnt" value="5"/>
+			<ATTR key="protResndFailLast" value="2013-05-30 16:09:03"/>
+			<ATTR key="protResndLast" value="2013-05-30 16:09:02"/>
+			<ATTR key="protSndCnt" value="8"/>
+			<ATTR key="protSndLast" value="2013-05-30 16:11:29"/>
+			<ATTR key="room" value="CUL_HM"/>
+			<ATTR key="serialNr" value="JEQ0163571"/>
+			<ATTR key="subType" value="switch"/>
+			<STATE key="CommandAccepted" value="yes" measured="2013-05-30 16:11:29"/>
+			<STATE key="deviceMsg" value="on (to CUL_0)" measured="2013-05-30 16:11:29"/>
+			<STATE key="state" value="on" measured="2013-05-30 16:11:29"/>
+		</CUL_HM>
+		<CUL_HM name="fl" state="???" sets="actiondetect getConfig getRegRaw getdevicepair getpair pair raw regRaw regSet reset sign statusRequest unpair virtual" attrs="room group comment alias eventMap IODev do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 hmClass:receiver,sender serialNr firmware devInfo rawToReadable unit chanNo device peerList actCycle actStatus protCmdPend protLastRcv protSndCnt protSndLast protCmdDel protNackCnt protNackLast protResndFailLast protResndLast protResndFailCnt protResndCnt protToutRespLast protToutRespCnt channel_01 channel_02 channel_03 channel_04 channel_05 channel_06 channel_07 channel_08 channel_09 channel_0A channel_0B channel_0C channel_0D channel_0E channel_0F channel_10 channel_11 channel_12 channel_13 channel_14 channel_15 channel_16 channel_17 channel_18  model:ASH550,ASH550I,CMM,DORMA_BRC-H,DORMA_RC-H,DORMA_atent,HM-CC-SCD,HM-CC-TC,HM-CC-VD,HM-Dis-TD-T,HM-LC-BL1-FM,HM-LC-BL1-PB-FM,HM-LC-BL1-SM,HM-LC-Bl1PBU-FM,HM-LC-DDC1-PCB,HM-LC-DIM1L-CV,HM-LC-DIM1L-PL,HM-LC-DIM1T-CV,HM-LC-DIM1T-FM,HM-LC-DIM1T-PL,HM-LC-DIM2L-CV,HM-LC-DIM2L-SM,HM-LC-DIM2T-SM,HM-LC-Dim1PWM-CV,HM-LC-Dim1TPBU-FM,HM-LC-SW1-BA-PCB,HM-LC-SW1-FM,HM-LC-SW1-PB-FM,HM-LC-SW1-PL,HM-LC-SW1-PL-OM54,HM-LC-SW1-SM,HM-LC-SW1-SM-ATMEGA168,HM-LC-SW2-DR,HM-LC-SW2-FM,HM-LC-SW2-PB-FM,HM-LC-SW2-SM,HM-LC-SW4-DR,HM-LC-SW4-PCB,HM-LC-SW4-SM,HM-LC-SW4-SM-ATMEGA168,HM-LC-SW4-WM,HM-LC-Sw1PBU-FM,HM-OU-CF-PL,HM-OU-CFM-PL,HM-OU-LED16,HM-PB-2-WM,HM-PB-2-WM55,HM-PB-4-WM,HM-PB-4DIS-WM,HM-PBI-4-FM,HM-RC-12,HM-RC-12-B,HM-RC-12-SW,HM-RC-19,HM-RC-19-B,HM-RC-19-SW,HM-RC-4,HM-RC-4-B,HM-RC-KEY3,HM-RC-KEY3-B,HM-RC-P1,HM-RC-SEC3,HM-RC-SEC3-B,HM-SCI-3-FM,HM-SEC-KEY,HM-SEC-KEY-O,HM-SEC-KEY-S,HM-SEC-MDIR,HM-SEC-RHS,HM-SEC-SC,HM-SEC-SD,HM-SEC-SFA-SM,HM-SEC-TIS,HM-SEC-WDS,HM-SEC-WIN,HM-SEN-EP,HM-SEN-MDIR-SM,HM-SWI-3-FM,HM-Sec-Cen,HM-Sen-MDIR-O,HM-WDC7000,HM-WDC7000,HM-WDS10-TH-O,HM-WDS100-C6-O,HM-WDS20-TH-O,HM-WDS30-T-O,HM-WDS40-TH-I,IS-WDS-TH-OD-S-R3,KFM-Display,KFM-Sensor,KS550,ROTO_ZEL-STG-RM-DWT-10,ROTO_ZEL-STG-RM-FDK,ROTO_ZEL-STG-RM-FEP-230V,ROTO_ZEL-STG-RM-FSA,ROTO_ZEL-STG-RM-FST-UP4,ROTO_ZEL-STG-RM-FWT,ROTO_ZEL-STG-RM-HS-4,ROTO_ZEL-STG-RM-WT-2,Roto_ZEL-STG-RM-FFK,Roto_ZEL-STG-RM-FSS-UP3,S550IA,Schueco_263-1350,Schueco_263-144,Schueco_263-145,Schueco_263-146,Schueco_263-155,Schueco_263-157,Schueco_263-158,Schueco_263-160,Schueco_263-162,WS888 subType:AlarmControl,ClimateControl,KFM100,THSensor,blindActuator,dimmer,keyMatic,motionDetector,outputUnit,pushButton,remote,sensor,smokeDetector,swi,switch,thermostat,threeStateSensor,winMatic fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="123456"/>
+			<INT key="NAME" value="fl"/>
+			<INT key="NR" value="33"/>
+			<INT key="STATE" value="???"/>
+			<INT key="TYPE" value="CUL_HM"/>
+			<INT key="IODev" value="CUL_0"/>
+			<ATTR key="channel_03" value="fl_Rollo2"/>
+			<ATTR key="protSndCnt" value="2"/>
+			<ATTR key="protSndLast" value="2013-04-02 19:33:43"/>
+			<ATTR key="protToutRespCnt" value="2"/>
+			<ATTR key="protToutRespLast" value="2013-04-02 19:33:45"/>
+			<STATE key="RegL_00:" value="0" measured="2013-04-02 20:56:14"/>
+		</CUL_HM>
+		<CUL_HM name="fl_Rollo2" state="???" sets="actiondetect getConfig getRegRaw getdevicepair getpair pair raw regRaw regSet reset sign statusRequest unpair virtual" attrs="room group comment alias eventMap IODev do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 hmClass:receiver,sender serialNr firmware devInfo rawToReadable unit chanNo device peerList actCycle actStatus protCmdPend protLastRcv protSndCnt protSndLast protCmdDel protNackCnt protNackLast protResndFailLast protResndLast protResndFailCnt protResndCnt protToutRespLast protToutRespCnt channel_01 channel_02 channel_03 channel_04 channel_05 channel_06 channel_07 channel_08 channel_09 channel_0A channel_0B channel_0C channel_0D channel_0E channel_0F channel_10 channel_11 channel_12 channel_13 channel_14 channel_15 channel_16 channel_17 channel_18  model:ASH550,ASH550I,CMM,DORMA_BRC-H,DORMA_RC-H,DORMA_atent,HM-CC-SCD,HM-CC-TC,HM-CC-VD,HM-Dis-TD-T,HM-LC-BL1-FM,HM-LC-BL1-PB-FM,HM-LC-BL1-SM,HM-LC-Bl1PBU-FM,HM-LC-DDC1-PCB,HM-LC-DIM1L-CV,HM-LC-DIM1L-PL,HM-LC-DIM1T-CV,HM-LC-DIM1T-FM,HM-LC-DIM1T-PL,HM-LC-DIM2L-CV,HM-LC-DIM2L-SM,HM-LC-DIM2T-SM,HM-LC-Dim1PWM-CV,HM-LC-Dim1TPBU-FM,HM-LC-SW1-BA-PCB,HM-LC-SW1-FM,HM-LC-SW1-PB-FM,HM-LC-SW1-PL,HM-LC-SW1-PL-OM54,HM-LC-SW1-SM,HM-LC-SW1-SM-ATMEGA168,HM-LC-SW2-DR,HM-LC-SW2-FM,HM-LC-SW2-PB-FM,HM-LC-SW2-SM,HM-LC-SW4-DR,HM-LC-SW4-PCB,HM-LC-SW4-SM,HM-LC-SW4-SM-ATMEGA168,HM-LC-SW4-WM,HM-LC-Sw1PBU-FM,HM-OU-CF-PL,HM-OU-CFM-PL,HM-OU-LED16,HM-PB-2-WM,HM-PB-2-WM55,HM-PB-4-WM,HM-PB-4DIS-WM,HM-PBI-4-FM,HM-RC-12,HM-RC-12-B,HM-RC-12-SW,HM-RC-19,HM-RC-19-B,HM-RC-19-SW,HM-RC-4,HM-RC-4-B,HM-RC-KEY3,HM-RC-KEY3-B,HM-RC-P1,HM-RC-SEC3,HM-RC-SEC3-B,HM-SCI-3-FM,HM-SEC-KEY,HM-SEC-KEY-O,HM-SEC-KEY-S,HM-SEC-MDIR,HM-SEC-RHS,HM-SEC-SC,HM-SEC-SD,HM-SEC-SFA-SM,HM-SEC-TIS,HM-SEC-WDS,HM-SEC-WIN,HM-SEN-EP,HM-SEN-MDIR-SM,HM-SWI-3-FM,HM-Sec-Cen,HM-Sen-MDIR-O,HM-WDC7000,HM-WDC7000,HM-WDS10-TH-O,HM-WDS100-C6-O,HM-WDS20-TH-O,HM-WDS30-T-O,HM-WDS40-TH-I,IS-WDS-TH-OD-S-R3,KFM-Display,KFM-Sensor,KS550,ROTO_ZEL-STG-RM-DWT-10,ROTO_ZEL-STG-RM-FDK,ROTO_ZEL-STG-RM-FEP-230V,ROTO_ZEL-STG-RM-FSA,ROTO_ZEL-STG-RM-FST-UP4,ROTO_ZEL-STG-RM-FWT,ROTO_ZEL-STG-RM-HS-4,ROTO_ZEL-STG-RM-WT-2,Roto_ZEL-STG-RM-FFK,Roto_ZEL-STG-RM-FSS-UP3,S550IA,Schueco_263-1350,Schueco_263-144,Schueco_263-145,Schueco_263-146,Schueco_263-155,Schueco_263-157,Schueco_263-158,Schueco_263-160,Schueco_263-162,WS888 subType:AlarmControl,ClimateControl,KFM100,THSensor,blindActuator,dimmer,keyMatic,motionDetector,outputUnit,pushButton,remote,sensor,smokeDetector,swi,switch,thermostat,threeStateSensor,winMatic fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="12345603"/>
+			<INT key="NAME" value="fl_Rollo2"/>
+			<INT key="NR" value="34"/>
+			<INT key="STATE" value="???"/>
+			<INT key="TYPE" value="CUL_HM"/>
+			<INT key="IODev" value="CUL_0"/>
+			<ATTR key="chanNo" value="03"/>
+			<ATTR key="device" value="fl"/>
+			<ATTR key="subType" value="blindActuator"/>
+		</CUL_HM>
+	</CUL_HM_LIST>
+	<FS20_LIST>
+		<FS20 name="b1_Lampe1" state="off" sets="dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle dim:slider,0,6.25,100" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="01"/>
+			<INT key="DEF" value="0004 01"/>
+			<INT key="NAME" value="b1_Lampe1"/>
+			<INT key="NR" value="47"/>
+			<INT key="STATE" value="off"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0004"/>
+			<INT key="IODev" value="CUL_2"/>
+			<STATE key="state" value="off" measured="2013-05-30 13:03:34"/>
+		</FS20>
+		<FS20 name="bk_Lampe1" state="off" sets="dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle dim:slider,0,6.25,100" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="01"/>
+			<INT key="DEF" value="0004 01"/>
+			<INT key="NAME" value="bk_Lampe1"/>
+			<INT key="NR" value="48"/>
+			<INT key="STATE" value="off"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0004"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="fp_Grundriss" value="719,362,0,"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Badklein"/>
+			<STATE key="state" value="off" measured="2013-05-30 13:03:34"/>
+		</FS20>
+		<FS20 name="bk_Rollo1" state="down" sets="on:down off:up dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle dim:slider,0,6.25,100" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="02"/>
+			<INT key="DEF" value="0004 02"/>
+			<INT key="NAME" value="bk_Rollo1"/>
+			<INT key="NR" value="49"/>
+			<INT key="STATE" value="down"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0004"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="eventMap" value="on:down off:up"/>
+			<ATTR key="fp_Grundriss" value="828,395,0,"/>
+			<ATTR key="icon" value="icoHaus"/>
+			<ATTR key="room" value="Badklein"/>
+			<ATTR key="webCmd" value="stop:up:90:80:70:60:50:40:30:20:10:down"/>
+			<STATE key="state" value="on" measured="2013-04-04 15:56:55"/>
+		</FS20>
+		<FS20 name="fl_Fensterkontakt1" state="open" sets="on:open off:closed " attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="03"/>
+			<INT key="DEF" value="0002 03"/>
+			<INT key="NAME" value="fl_Fensterkontakt1"/>
+			<INT key="NR" value="37"/>
+			<INT key="STATE" value="open"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0002"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="eventMap" value="on:open off:closed"/>
+			<ATTR key="fp_Grundriss" value="203,268,0,"/>
+			<ATTR key="group" value="Fensterkontakte"/>
+			<ATTR key="icon" value="icoHaus"/>
+			<ATTR key="model" value="fs20tfk"/>
+			<ATTR key="room" value="Flur_EG"/>
+			<STATE key="state" value="on" measured="2013-04-11 14:50:35"/>
+		</FS20>
+		<FS20 name="fl_Lampe1" state="off" sets="off off-for-timer on on-for-timer on-till reset timer toggle" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="01"/>
+			<INT key="DEF" value="0002 01"/>
+			<INT key="NAME" value="fl_Lampe1"/>
+			<INT key="NR" value="35"/>
+			<INT key="STATE" value="off"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0002"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="fp_Grundriss" value="399,400,0,"/>
+			<ATTR key="group" value="Beleuchtung"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="model" value="fs20su"/>
+			<ATTR key="room" value="Flur_EG"/>
+			<STATE key="state" value="off" measured="2013-04-11 14:50:13"/>
+		</FS20>
+		<FS20 name="fl_Lampe2" state="off" sets="off off-for-timer on on-for-timer on-till reset timer toggle" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="02"/>
+			<INT key="DEF" value="0002 02"/>
+			<INT key="NAME" value="fl_Lampe2"/>
+			<INT key="NR" value="36"/>
+			<INT key="STATE" value="off"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0002"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="fp_Grundriss" value="643,630,0,"/>
+			<ATTR key="group" value="Beleuchtung"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="model" value="fs20su"/>
+			<ATTR key="room" value="Flur_EG"/>
+			<STATE key="state" value="off" measured="2013-04-11 14:50:12"/>
+		</FS20>
+		<FS20 name="fl_Rollo1" state="down" sets="on:down off:up dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle dim:slider,0,6.25,100" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="04"/>
+			<INT key="DEF" value="0002 04"/>
+			<INT key="NAME" value="fl_Rollo1"/>
+			<INT key="NR" value="38"/>
+			<INT key="STATE" value="down"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0002"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="eventMap" value="on:down off:up"/>
+			<ATTR key="fp_Grundriss" value="494,248,1,Rollo"/>
+			<ATTR key="group" value="Rollos"/>
+			<ATTR key="icon" value="icoHaus"/>
+			<ATTR key="room" value="Flur_EG"/>
+			<ATTR key="webCmd" value="stop:up:90:80:70:60:50:40:30:20:10:down"/>
+			<STATE key="state" value="on" measured="2013-04-04 14:46:14"/>
+		</FS20>
+		<FS20 name="ku_Fensterkontakt1" state="open" sets="on:open off:closed " attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="02"/>
+			<INT key="DEF" value="0005 02"/>
+			<INT key="NAME" value="ku_Fensterkontakt1"/>
+			<INT key="NR" value="44"/>
+			<INT key="STATE" value="open"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0005"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="eventMap" value="on:open off:closed"/>
+			<ATTR key="fp_Grundriss" value="51,631,0,"/>
+			<ATTR key="icon" value="icoHaus"/>
+			<ATTR key="model" value="fs20tfk"/>
+			<ATTR key="room" value="Küche"/>
+			<STATE key="state" value="on" measured="2013-04-04 00:08:06"/>
+		</FS20>
+		<FS20 name="ku_Lampe1" state="on" sets="dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle dim:slider,0,6.25,100" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="01"/>
+			<INT key="DEF" value="0005 01"/>
+			<INT key="NAME" value="ku_Lampe1"/>
+			<INT key="NR" value="43"/>
+			<INT key="STATE" value="on"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0005"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="fp_Grundriss" value="330,636,0,"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Küche"/>
+			<STATE key="state" value="on" measured="2013-04-11 16:06:40"/>
+		</FS20>
+		<FS20 name="wz_Rollo1" state="up" sets="on:down off:up dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle dim:slider,0,6.25,100" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="03"/>
+			<INT key="DEF" value="0003 03"/>
+			<INT key="NAME" value="wz_Rollo1"/>
+			<INT key="NR" value="42"/>
+			<INT key="STATE" value="up"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0003"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="eventMap" value="on:down off:up"/>
+			<ATTR key="fp_Grundriss" value="34,755,5,"/>
+			<ATTR key="icon" value="icoHaus"/>
+			<ATTR key="room" value="Wohnzimmer"/>
+			<ATTR key="webCmd" value="stop:up:90:80:70:60:50:40:30:20:10:down"/>
+			<STATE key="state" value="off" measured="2013-04-10 19:18:21"/>
+		</FS20>
+		<FS20 name="wz_dimLampe1" state="dim56%" sets="on:100% off:0% dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle dim:slider,0,6.25,100" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="01"/>
+			<INT key="DEF" value="0003 01"/>
+			<INT key="NAME" value="wz_dimLampe1"/>
+			<INT key="NR" value="40"/>
+			<INT key="STATE" value="dim56%"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0003"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="eventMap" value="on:100% off:0%"/>
+			<ATTR key="fp_Grundriss" value="332,884,5,"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Wohnzimmer"/>
+			<ATTR key="webCmd" value="dim"/>
+			<STATE key="state" value="dim56%" measured="2013-04-11 16:06:32"/>
+		</FS20>
+		<FS20 name="wz_dimLampe2" state="dim50%" sets="on:100% off:0% dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle dim:slider,0,6.25,100" attrs="room group comment alias eventMap IODev follow-on-for-timer:1,0 follow-on-timer do_not_notify:1,0 ignore:1,0 dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 model:dummyDimmer,dummySender,dummySimple,fs20as1,fs20as4,fs20bf,fs20bs,fs20di,fs20di10,fs20du,fs20fms,fs20hgs,fs20irl,fs20kse,fs20ls,fs20ms2,fs20pira,fs20piri,fs20piru,fs20rgbsa,fs20rst,fs20rsu,fs20s16,fs20s20,fs20s4,fs20s4a,fs20s4m,fs20s4u,fs20s4ub,fs20s8,fs20s8m,fs20sa,fs20sd,fs20sig,fs20sm4,fs20sm8,fs20sn,fs20sr,fs20ss,fs20st,fs20st2,fs20str,fs20su,fs20sv,fs20tc1,fs20tc6,fs20tfk,fs20tk,fs20ue1,fs20usr,fs20uts,fs20ws1,fs20ze fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BTN" value="02"/>
+			<INT key="DEF" value="0003 02"/>
+			<INT key="NAME" value="wz_dimLampe2"/>
+			<INT key="NR" value="41"/>
+			<INT key="STATE" value="dim50%"/>
+			<INT key="TYPE" value="FS20"/>
+			<INT key="XMIT" value="0003"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="eventMap" value="on:100% off:0%"/>
+			<ATTR key="fp_Grundriss" value="600,940,5,"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Wohnzimmer"/>
+			<ATTR key="webCmd" value="dim"/>
+			<STATE key="state" value="dim50%" measured="2013-04-11 14:50:16"/>
+		</FS20>
+	</FS20_LIST>
+	<FHT_LIST>
+		<FHT name="bk_Heizung1" state="???" sets="day day-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 desired-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 fri-from1:time fri-from2:time fri-to1:time fri-to2:time holiday1 holiday2 hour lowtemp-offset manu-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 minute mode mon-from1:time mon-from2:time mon-to1:time mon-to2:time month night-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 report1 report2 sat-from1:time sat-from2:time sat-to1:time sat-to2:time sun-from1:time sun-from2:time sun-to1:time sun-to2:time thu-from1:time thu-from2:time thu-to1:time thu-to2:time tue-from1:time tue-from2:time tue-to1:time tue-to2:time wed-from1:time wed-from2:time wed-to1:time wed-to2:time windowopen-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 year" attrs="room group comment alias eventMap IODev do_not_notify:1,0 model:fht80b dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 retrycount minfhtbuffer lazy tmpcorr ignore:1,0 event-on-update-reading event-on-change-reading fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CODE" value="1004"/>
+			<INT key="DEF" value="1004"/>
+			<INT key="NAME" value="bk_Heizung1"/>
+			<INT key="NR" value="50"/>
+			<INT key="STATE" value="???"/>
+			<INT key="TYPE" value="FHT"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="fp_Grundriss" value="756,352,5,"/>
+			<ATTR key="icon" value="icoHEIZUNG"/>
+			<ATTR key="retrycount" value="3"/>
+			<ATTR key="room" value="Badklein"/>
+		</FHT>
+		<FHT name="ku_Heizung1" state="???" sets="day day-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 desired-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 fri-from1:time fri-from2:time fri-to1:time fri-to2:time holiday1 holiday2 hour lowtemp-offset manu-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 minute mode mon-from1:time mon-from2:time mon-to1:time mon-to2:time month night-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 report1 report2 sat-from1:time sat-from2:time sat-to1:time sat-to2:time sun-from1:time sun-from2:time sun-to1:time sun-to2:time thu-from1:time thu-from2:time thu-to1:time thu-to2:time tue-from1:time tue-from2:time tue-to1:time tue-to2:time wed-from1:time wed-from2:time wed-to1:time wed-to2:time windowopen-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 year" attrs="room group comment alias eventMap IODev do_not_notify:1,0 model:fht80b dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 retrycount minfhtbuffer lazy tmpcorr ignore:1,0 event-on-update-reading event-on-change-reading fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CODE" value="0005"/>
+			<INT key="DEF" value="0005"/>
+			<INT key="NAME" value="ku_Heizung1"/>
+			<INT key="NR" value="45"/>
+			<INT key="STATE" value="???"/>
+			<INT key="TYPE" value="FHT"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="fp_Grundriss" value="108,663,5,"/>
+			<ATTR key="icon" value="icoHEIZUNG"/>
+			<ATTR key="retrycount" value="3"/>
+			<ATTR key="room" value="Küche"/>
+		</FHT>
+		<FHT name="wz_Heizung1" state="???" sets="day day-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 desired-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 fri-from1:time fri-from2:time fri-to1:time fri-to2:time holiday1 holiday2 hour lowtemp-offset manu-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 minute mode mon-from1:time mon-from2:time mon-to1:time mon-to2:time month night-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 report1 report2 sat-from1:time sat-from2:time sat-to1:time sat-to2:time sun-from1:time sun-from2:time sun-to1:time sun-to2:time thu-from1:time thu-from2:time thu-to1:time thu-to2:time tue-from1:time tue-from2:time tue-to1:time tue-to2:time wed-from1:time wed-from2:time wed-to1:time wed-to2:time windowopen-temp:on,off,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0 year" attrs="room group comment alias eventMap IODev do_not_notify:1,0 model:fht80b dummy:1,0 showtime:1,0 loglevel:0,1,2,3,4,5,6 retrycount minfhtbuffer lazy tmpcorr ignore:1,0 event-on-update-reading event-on-change-reading fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CODE" value="1003"/>
+			<INT key="DEF" value="1003"/>
+			<INT key="NAME" value="wz_Heizung1"/>
+			<INT key="NR" value="46"/>
+			<INT key="STATE" value="???"/>
+			<INT key="TYPE" value="FHT"/>
+			<INT key="IODev" value="CUL_2"/>
+			<ATTR key="fp_Grundriss" value="110,861,5,"/>
+			<ATTR key="icon" value="icoHEIZUNG"/>
+			<ATTR key="retrycount" value="3"/>
+			<ATTR key="room" value="Wohnzimmer"/>
+		</FHT>
+	</FHT_LIST>
+	<Weather_LIST>
+		<Weather name="WetterDEv" state="T: 0  H: 0  W: 0" sets="update" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5 localicons event-on-update-reading event-on-change-reading fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="673513 1800"/>
+			<INT key="INTERVAL" value="1800"/>
+			<INT key="LANG" value="en"/>
+			<INT key="LOCATION" value="673513"/>
+			<INT key="NAME" value="WetterDEv"/>
+			<INT key="NR" value="51"/>
+			<INT key="STATE" value="T: 0  H: 0  W: 0"/>
+			<INT key="TYPE" value="Weather"/>
+			<INT key="UNITS" value="c"/>
+			<STATE key="current_date_time" value="none" measured="2013-05-23 16:30:33"/>
+			<STATE key="humidity" value="0" measured="2013-04-04 01:24:21"/>
+			<STATE key="temperature" value="0" measured="2013-04-04 01:24:21"/>
+			<STATE key="wind" value="0" measured="2013-04-04 01:24:21"/>
+		</Weather>
+	</Weather_LIST>
+	<at_LIST>
+		<at name="temp243_at" state="Next: 17:34:36" sets="" attrs="room group comment alias eventMap disable:0,1 skip_next:0,1 loglevel:0,1,2,3,4,5,6 alignTime fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CFGFN" value=""/>
+			<INT key="DEF" value="+*00:02:00 &quot;(echo -n &quot;`date '+%Y-%m-%d_%H:%M:%S device temperature:'` &quot; &gt;&gt; ./log/temp243-2013.log &amp; bash ./log/zufall &gt;&gt; ./log/temp243-2013.log )&quot;"/>
+			<INT key="NAME" value="temp243_at"/>
+			<INT key="NR" value="13834"/>
+			<INT key="NTM" value="17:34:36"/>
+			<INT key="REP" value="-1"/>
+			<INT key="STATE" value="Next: 17:34:36"/>
+			<INT key="TRIGGERTIME" value="1370964876.76281"/>
+			<INT key="TYPE" value="at"/>
+		</at>
+	</at_LIST>
+	<notify_LIST>
+		<notify name="initialUsbCheck" state="active" sets="" attrs="room group comment alias eventMap disable:0,1 forwardReturnValue:0,1 loglevel:0,1,2,3,4,5,6 fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="global:INITIALIZED usb create"/>
+			<INT key="NAME" value="initialUsbCheck"/>
+			<INT key="NR" value="17"/>
+			<INT key="NTFY_ORDER" value="50-initialUsbCheck"/>
+			<INT key="REGEXP" value="global:INITIALIZED"/>
+			<INT key="STATE" value="active"/>
+			<INT key="TYPE" value="notify"/>
+		</notify>
+	</notify_LIST>
+	<FileLog_LIST>
+		<FileLog name="FileLog_CUL_FHTTK_a64fd0" state="active" sets="reopen" attrs="room group comment alias eventMap disable:0,1 logtype nrarchive archivedir archivecmd fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="./log/CUL_FHTTK_a64fd0-%Y.log CUL_FHTTK_a64fd0"/>
+			<INT key="NAME" value="FileLog_CUL_FHTTK_a64fd0"/>
+			<INT key="NR" value="71"/>
+			<INT key="NTFY_ORDER" value="50-FileLog_CUL_FHTTK_a64fd0"/>
+			<INT key="REGEXP" value="CUL_FHTTK_a64fd0"/>
+			<INT key="STATE" value="active"/>
+			<INT key="TYPE" value="FileLog"/>
+			<INT key="currentlogfile" value="./log/CUL_FHTTK_a64fd0-2013.log"/>
+			<INT key="logfile" value="./log/CUL_FHTTK_a64fd0-%Y.log"/>
+			<ATTR key="logtype" value="fht80tf:Window,text"/>
+			<ATTR key="room" value="CUL_FHTTK"/>
+		</FileLog>
+		<FileLog name="FileLog_CUL_HM_THSensor_1B59A6" state="active" sets="reopen" attrs="room group comment alias eventMap disable:0,1 logtype nrarchive archivedir archivecmd fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="./log/CUL_HM_THSensor_1B59A6-%Y.log CUL_HM_THSensor_1B59A6:T:.*"/>
+			<INT key="NAME" value="FileLog_CUL_HM_THSensor_1B59A6"/>
+			<INT key="NR" value="67"/>
+			<INT key="NTFY_ORDER" value="50-FileLog_CUL_HM_THSensor_1B59A6"/>
+			<INT key="REGEXP" value="CUL_HM_THSensor_1B59A6:T:.*"/>
+			<INT key="STATE" value="active"/>
+			<INT key="TYPE" value="FileLog"/>
+			<INT key="currentlogfile" value="./log/CUL_HM_THSensor_1B59A6-2013.log"/>
+			<INT key="logfile" value="./log/CUL_HM_THSensor_1B59A6-%Y.log"/>
+			<ATTR key="logtype" value="temp4hum6:Temp/Hum,text"/>
+			<ATTR key="room" value="CUL_HM"/>
+		</FileLog>
+		<FileLog name="FileLog_CUL_HM_switch_1A5D14" state="active" sets="reopen" attrs="room group comment alias eventMap disable:0,1 logtype nrarchive archivedir archivecmd fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CFGFN" value=""/>
+			<INT key="DEF" value="./log/CUL_HM_switch_1A5D14-%Y.log CUL_HM_switch_1A5D14"/>
+			<INT key="NAME" value="FileLog_CUL_HM_switch_1A5D14"/>
+			<INT key="NR" value="5127"/>
+			<INT key="NTFY_ORDER" value="50-FileLog_CUL_HM_switch_1A5D14"/>
+			<INT key="REGEXP" value="CUL_HM_switch_1A5D14"/>
+			<INT key="STATE" value="active"/>
+			<INT key="TYPE" value="FileLog"/>
+			<INT key="currentlogfile" value="./log/CUL_HM_switch_1A5D14-2013.log"/>
+			<INT key="logfile" value="./log/CUL_HM_switch_1A5D14-%Y.log"/>
+			<ATTR key="logtype" value="text"/>
+			<ATTR key="room" value="CUL_HM"/>
+		</FileLog>
+		<FileLog name="Logfile" state="active" sets="reopen" attrs="room group comment alias eventMap disable:0,1 logtype nrarchive archivedir archivecmd fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="./log/fhem-%Y-%m.log fakelog"/>
+			<INT key="NAME" value="Logfile"/>
+			<INT key="NR" value="12"/>
+			<INT key="NTFY_ORDER" value="50-Logfile"/>
+			<INT key="REGEXP" value="fakelog"/>
+			<INT key="STATE" value="active"/>
+			<INT key="TYPE" value="FileLog"/>
+			<INT key="currentlogfile" value="./log/fhem-2013-05.log"/>
+			<INT key="logfile" value="./log/fhem-%Y-%m.log"/>
+		</FileLog>
+		<FileLog name="temp243Log" state="active" sets="reopen" attrs="room group comment alias eventMap disable:0,1 logtype nrarchive archivedir archivecmd fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="./log/temp243-%Y.log temp243"/>
+			<INT key="NAME" value="temp243Log"/>
+			<INT key="NR" value="65"/>
+			<INT key="NTFY_ORDER" value="50-temp243Log"/>
+			<INT key="REGEXP" value="temp243"/>
+			<INT key="STATE" value="active"/>
+			<INT key="TYPE" value="FileLog"/>
+			<INT key="currentlogfile" value="./log/temp243-2013.log"/>
+			<INT key="logfile" value="./log/temp243-%Y.log"/>
+			<ATTR key="logtype" value="temp243:Plot,text"/>
+			<ATTR key="room" value="Badklein"/>
+		</FileLog>
+		<FileLog name="temperaturLog" state="active" sets="reopen" attrs="room group comment alias eventMap disable:0,1 logtype nrarchive archivedir archivecmd fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="./log/temperatur-%Y.log temperatur"/>
+			<INT key="NAME" value="temperaturLog"/>
+			<INT key="NR" value="60"/>
+			<INT key="NTFY_ORDER" value="50-temperaturLog"/>
+			<INT key="REGEXP" value="temperatur"/>
+			<INT key="STATE" value="active"/>
+			<INT key="TYPE" value="FileLog"/>
+			<INT key="currentlogfile" value="./log/temperatur-2013.log"/>
+			<INT key="logfile" value="./log/temperatur-%Y.log"/>
+			<ATTR key="logtype" value="jb_temperatur:Plot,text"/>
+		</FileLog>
+	</FileLog_LIST>
+	<FLOORPLAN_LIST>
+		<FLOORPLAN name="Grundriss" state="Grundriss" sets="" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 refresh fp_arrange:1,detail,WEB,0 commandfield:1,0 fp_default:1,0 stylesheet fp_noMenu:1,0 fp_backgroundimg fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="NAME" value="Grundriss"/>
+			<INT key="NR" value="63"/>
+			<INT key="STATE" value="Grundriss"/>
+			<INT key="TYPE" value="FLOORPLAN"/>
+			<ATTR key="fp_default" value="1"/>
+		</FLOORPLAN>
+	</FLOORPLAN_LIST>
+	<autocreate_LIST>
+		<autocreate name="autocreate" state="active" sets="" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 autosave filelog device_room weblink weblink_room disable ignoreTypes fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="NAME" value="autocreate"/>
+			<INT key="NR" value="14"/>
+			<INT key="NTFY_ORDER" value="50-autocreate"/>
+			<INT key="STATE" value="active"/>
+			<INT key="TYPE" value="autocreate"/>
+			<ATTR key="autosave" value="1"/>
+			<ATTR key="device_room" value="%TYPE"/>
+			<ATTR key="filelog" value="./log/%NAME-%Y.log"/>
+			<ATTR key="weblink" value="1"/>
+			<ATTR key="weblink_room" value="Plots"/>
+		</autocreate>
+	</autocreate_LIST>
+	<dummy_LIST>
+		<dummy name="CREATEDBYTELNET" state="???" sets="*" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 setList fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="NAME" value="CREATEDBYTELNET"/>
+			<INT key="NR" value="62"/>
+			<INT key="STATE" value="???"/>
+			<INT key="TYPE" value="dummy"/>
+		</dummy>
+		<dummy name="FrankTestTelnet" state="???" sets="*" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 setList fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="NAME" value="FrankTestTelnet"/>
+			<INT key="NR" value="61"/>
+			<INT key="STATE" value="???"/>
+			<INT key="TYPE" value="dummy"/>
+			<ATTR key="fp_Grundriss" value="50,100"/>
+		</dummy>
+		<dummy name="temp243" state="???" sets="*" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 setList fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="NAME" value="temp243"/>
+			<INT key="NR" value="64"/>
+			<INT key="STATE" value="???"/>
+			<INT key="TYPE" value="dummy"/>
+		</dummy>
+		<dummy name="temperatur" state="???" sets="*" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 setList fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="NAME" value="temperatur"/>
+			<INT key="NR" value="59"/>
+			<INT key="STATE" value="???"/>
+			<INT key="TYPE" value="dummy"/>
+		</dummy>
+	</dummy_LIST>
+	<structure_LIST>
+		<structure name="EG_AlleLampen" state="undefined" sets="dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dim:slider,0,6.25,100 dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle" attrs="room group comment alias eventMap clientstate_priority clientstate_behavior:relative,absolute fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="ATTR" value="room"/>
+			<INT key="DEF" value="room wz_dimLampe1 wz_dimLampe2 ku_Lampe1 fl_Lampe2 bk_Lampe1"/>
+			<INT key="NAME" value="EG_AlleLampen"/>
+			<INT key="NR" value="58"/>
+			<INT key="NTFY_ORDER" value="50-EG_AlleLampen"/>
+			<INT key="STATE" value="undefined"/>
+			<INT key="TYPE" value="structure"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Beleuchtung"/>
+			<STATE key="state" value="undefined" measured="2013-05-30 13:03:34"/>
+		</structure>
+		<structure name="bk_Lampe_1" state="off" sets="dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dim:slider,0,6.25,100 dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle" attrs="room group comment alias eventMap clientstate_priority clientstate_behavior:relative,absolute fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="ATTR" value="room"/>
+			<INT key="DEF" value="room bk_Lampe1"/>
+			<INT key="NAME" value="bk_Lampe_1"/>
+			<INT key="NR" value="55"/>
+			<INT key="NTFY_ORDER" value="50-bk_Lampe_1"/>
+			<INT key="STATE" value="off"/>
+			<INT key="TYPE" value="structure"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Beleuchtung"/>
+			<STATE key="state" value="off" measured="2013-05-30 13:03:34"/>
+		</structure>
+		<structure name="fl_Lampe_1" state="defined" sets="off off-for-timer on on-for-timer on-till reset timer toggle" attrs="room group comment alias eventMap clientstate_priority clientstate_behavior:relative,absolute fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="ATTR" value="room"/>
+			<INT key="DEF" value="room fl_Lampe1"/>
+			<INT key="NAME" value="fl_Lampe_1"/>
+			<INT key="NR" value="56"/>
+			<INT key="NTFY_ORDER" value="50-fl_Lampe_1"/>
+			<INT key="STATE" value="defined"/>
+			<INT key="TYPE" value="structure"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Beleuchtung"/>
+			<STATE key="state" value="off" measured="2013-04-11 14:50:13"/>
+		</structure>
+		<structure name="fl_Lampe_2" state="defined" sets="off off-for-timer on on-for-timer on-till reset timer toggle" attrs="room group comment alias eventMap clientstate_priority clientstate_behavior:relative,absolute fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="ATTR" value="room"/>
+			<INT key="DEF" value="room fl_Lampe2"/>
+			<INT key="NAME" value="fl_Lampe_2"/>
+			<INT key="NR" value="57"/>
+			<INT key="NTFY_ORDER" value="50-fl_Lampe_2"/>
+			<INT key="STATE" value="defined"/>
+			<INT key="TYPE" value="structure"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Beleuchtung"/>
+			<STATE key="state" value="off" measured="2013-04-11 14:50:12"/>
+		</structure>
+		<structure name="ku_Lampe_1" state="defined" sets="dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dim:slider,0,6.25,100 dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle" attrs="room group comment alias eventMap clientstate_priority clientstate_behavior:relative,absolute fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="ATTR" value="room"/>
+			<INT key="DEF" value="room ku_Lampe1"/>
+			<INT key="NAME" value="ku_Lampe_1"/>
+			<INT key="NR" value="54"/>
+			<INT key="NTFY_ORDER" value="50-ku_Lampe_1"/>
+			<INT key="STATE" value="defined"/>
+			<INT key="TYPE" value="structure"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Beleuchtung"/>
+			<STATE key="state" value="on" measured="2013-04-11 16:06:40"/>
+		</structure>
+		<structure name="wz_dimLampe_1" state="defined" sets="on:100% off:0% dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dim:slider,0,6.25,100 dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle" attrs="room group comment alias eventMap clientstate_priority clientstate_behavior:relative,absolute fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="ATTR" value="room"/>
+			<INT key="DEF" value="room wz_dimLampe1"/>
+			<INT key="NAME" value="wz_dimLampe_1"/>
+			<INT key="NR" value="52"/>
+			<INT key="NTFY_ORDER" value="50-wz_dimLampe_1"/>
+			<INT key="STATE" value="defined"/>
+			<INT key="TYPE" value="structure"/>
+			<ATTR key="eventMap" value="on:100% off:0%"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Beleuchtung"/>
+			<ATTR key="webCmd" value="dim"/>
+			<STATE key="state" value="dim56%" measured="2013-04-11 16:06:32"/>
+		</structure>
+		<structure name="wz_dimLampe_2" state="defined" sets="on:100% off:0% dim06% dim100% dim12% dim18% dim25% dim31% dim37% dim43% dim50% dim56% dim62% dim68% dim75% dim81% dim87% dim93% dim:slider,0,6.25,100 dimdown dimup dimupdown off off-for-timer on on-100-for-timer-prev on-for-timer on-old-for-timer on-old-for-timer-prev on-till ramp-off-time ramp-on-time reset sendstate timer toggle" attrs="room group comment alias eventMap clientstate_priority clientstate_behavior:relative,absolute fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="ATTR" value="room"/>
+			<INT key="DEF" value="room wz_dimLampe2"/>
+			<INT key="NAME" value="wz_dimLampe_2"/>
+			<INT key="NR" value="53"/>
+			<INT key="NTFY_ORDER" value="50-wz_dimLampe_2"/>
+			<INT key="STATE" value="defined"/>
+			<INT key="TYPE" value="structure"/>
+			<ATTR key="eventMap" value="on:100% off:0%"/>
+			<ATTR key="icon" value="icoLicht"/>
+			<ATTR key="room" value="Beleuchtung"/>
+			<ATTR key="webCmd" value="dim"/>
+			<STATE key="state" value="dim50%" measured="2013-04-11 14:50:16"/>
+		</structure>
+	</structure_LIST>
+	<telnet_LIST>
+		<telnet name="telnet:141.56.26.15:9441" state="Connected" sets="" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 globalpassword password allowfrom SSL fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="BUF" value=""/>
+			<INT key="FD" value="12"/>
+			<INT key="NAME" value="telnet:141.56.26.15:9441"/>
+			<INT key="NR" value="13835"/>
+			<INT key="SNAME" value="telnetPort"/>
+			<INT key="STATE" value="Connected"/>
+			<INT key="TEMPORARY" value="1"/>
+			<INT key="TYPE" value="telnet"/>
+			<ATTR key="room" value="hidden"/>
+		</telnet>
+		<telnet name="telnetPort" state="Initialized" sets="" attrs="room group comment alias eventMap loglevel:0,1,2,3,4,5,6 globalpassword password allowfrom SSL fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="CONNECTS" value="4"/>
+			<INT key="DEF" value="7072 global"/>
+			<INT key="FD" value="6"/>
+			<INT key="NAME" value="telnetPort"/>
+			<INT key="NR" value="3"/>
+			<INT key="NTFY_ORDER" value="50-telnetPort"/>
+			<INT key="PORT" value="7072"/>
+			<INT key="STATE" value="Initialized"/>
+			<INT key="TYPE" value="telnet"/>
+		</telnet>
+	</telnet_LIST>
+	<weblink_LIST>
+		<weblink name="Wetter" state="initial" sets="" attrs="room group comment alias eventMap fixedrange plotmode plotsize label title htmlattr fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="iframe http://www.wetteronline.de/cgi-bin/hpweather?PLZ=01069"/>
+			<INT key="LINK" value="http://www.wetteronline.de/cgi-bin/hpweather?PLZ=01069"/>
+			<INT key="NAME" value="Wetter"/>
+			<INT key="NR" value="39"/>
+			<INT key="STATE" value="initial"/>
+			<INT key="TYPE" value="weblink"/>
+			<INT key="WLTYPE" value="iframe"/>
+			<ATTR key="fp_Grundriss" value="420,25"/>
+			<ATTR key="htmlattr" value="width=&quot;220&quot; height=&quot;330&quot; frameborder=&quot;0&quot; maginheight=&quot;0&quot; marginwidth=&quot;0&quot;"/>
+			<ATTR key="room" value="Wetter"/>
+		</weblink>
+		<weblink name="weblink_CUL_FHTTK_a64fd0" state="initial" sets="" attrs="room group comment alias eventMap fixedrange plotmode plotsize label title htmlattr fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="fileplot FileLog_CUL_FHTTK_a64fd0:fht80tf:CURRENT"/>
+			<INT key="LINK" value="FileLog_CUL_FHTTK_a64fd0:fht80tf:CURRENT"/>
+			<INT key="NAME" value="weblink_CUL_FHTTK_a64fd0"/>
+			<INT key="NR" value="72"/>
+			<INT key="STATE" value="initial"/>
+			<INT key="TYPE" value="weblink"/>
+			<INT key="WLTYPE" value="fileplot"/>
+			<ATTR key="label" value="&quot;CUL_FHTTK_a64fd0 Min $data{min1}, Max $data{max1}, Last $data{currval1}&quot;"/>
+			<ATTR key="room" value="Plots"/>
+		</weblink>
+		<weblink name="weblink_CUL_HM_THSensor_1B59A6" state="initial" sets="" attrs="room group comment alias eventMap fixedrange plotmode plotsize label title htmlattr fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="fileplot FileLog_CUL_HM_THSensor_1B59A6:temp4hum6:CURRENT"/>
+			<INT key="LINK" value="FileLog_CUL_HM_THSensor_1B59A6:temp4hum6:CURRENT"/>
+			<INT key="NAME" value="weblink_CUL_HM_THSensor_1B59A6"/>
+			<INT key="NR" value="68"/>
+			<INT key="STATE" value="initial"/>
+			<INT key="TYPE" value="weblink"/>
+			<INT key="WLTYPE" value="fileplot"/>
+			<ATTR key="label" value="&quot;CUL_HM_THSensor_1B59A6 Min $data{min1}, Max $data{max1}, Last $data{currval1}&quot;"/>
+			<ATTR key="plotsize" value="1000,400"/>
+			<ATTR key="room" value="Plots"/>
+		</weblink>
+		<weblink name="wl_0" state="initial" sets="" attrs="room group comment alias eventMap fixedrange plotmode plotsize label title htmlattr fp_Grundriss icon room_map structexclude webCmd">
+			<INT key="DEF" value="fileplot temp243Log:temp243:CURRENT"/>
+			<INT key="LINK" value="temp243Log:temp243:CURRENT"/>
+			<INT key="NAME" value="wl_0"/>
+			<INT key="NR" value="69"/>
+			<INT key="STATE" value="initial"/>
+			<INT key="TYPE" value="weblink"/>
+			<INT key="WLTYPE" value="fileplot"/>
+			<ATTR key="label" value="Temperaturfiasko"/>
+			<ATTR key="plotsize" value="1000,400"/>
+			<ATTR key="room" value="Badklein"/>
+			<ATTR key="title" value="Temperaturfiasko"/>
+		</weblink>
+	</weblink_LIST>
+</FHZINFO>
+

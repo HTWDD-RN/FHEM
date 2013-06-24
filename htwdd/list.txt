@@ -1,0 +1,70 @@
+Type list <name> for detailed info.
+
+Global:
+global (<no definition>)
+
+FHEMWEB:
+FHEMWEB:127.0.0.1:8932 (Connected)
+FHEMWEB:127.0.0.1:8936 (Connected)
+WEB(Initialized)
+WEBphone (Initialized)
+WEBt
+ablet(Initialized)
+
+FS20:
+ b1_Lampe1(???)
+ bk_Lampe1(???)
+ bk_Rollo1(???)
+
+ fl_Fensterkontakt1 (closed)
+fl_Lampe1(on)
+ fl_Lampe2(on)
+fl_Rollo1(down)
+ ku_Fe
+nsterkontakt1 (???)
+ ku_Lampe1(on)
+wz_Rollo1(???)
+wz_dimLampe1 (???)
+wz_dimLampe2
+ (???)
+
+FHT:
+bk_Heizung1(???)
+ku_Heizung1(???)
+wz_Heizung1(???)
+
+Weather:
+WetterDEv
+ (T: 22H: 48W: 11)
+
+notify:
+ initialUsbCheck(active)
+
+FileLog:
+Logfile(active)
+
+ FLOORPLAN:
+
+ Grundriss(Grundriss)
+
+ autocreate:
+autocreate (active)
+
+ structure:
+ EG_AlleLampen(defined)
+ b
+k_Lampe_1 (defined)
+ fl_Lampe_1 (defined)
+ fl_Lampe_2 (defined)
+ ku_Lampe_1 (def
+ined)
+ wz_dimLampe_1(defined)
+ wz_dimLampe_2(defined)
+
+ telnet:
+telnet:127.0.0.1:8958 (Connected)
+ telnetP
+ort (Initialized)
+
+ weblink:
+ Wetter (initial)
