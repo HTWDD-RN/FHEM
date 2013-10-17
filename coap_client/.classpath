@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/Dokumente/HTW/2. Semester/Forschungsprojekt/CoAP/cf-client-0.13.3.jar"/>
+	<classpathentry kind="lib" path="cf-client-0.13.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
