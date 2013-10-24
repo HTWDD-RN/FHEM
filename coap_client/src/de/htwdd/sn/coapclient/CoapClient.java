@@ -103,7 +103,7 @@ public class CoapClient {
 	public static final String DELETE = "DELETE";
 
 	// Method for listener classes to register themselves
-	public void addCoapResponseEventListener(CoapResponseEvent listener) {
+	public void initListener(CoapResponseEvent listener) {
 		if (listeners == null)
 			listeners = new Vector<CoapResponseEvent>();
 

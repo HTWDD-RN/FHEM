@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import de.htwdd.sn.coapclient.FhemCoapClient;
+import de.htwdd.sn.coapclient.FhemCoapWrapper;
 
 public class TcpServerThread implements Runnable {
 
@@ -17,8 +17,8 @@ public class TcpServerThread implements Runnable {
 	}
 
 	/**
-	 * Thread wird ausgeführt, serversocket nach erfolgreicher Verbindung dem
-	 * coap Client übergeben, damit dieser auf Antworten des Coap Server
+	 * Thread wird ausgefï¿½hrt, serversocket nach erfolgreicher Verbindung dem
+	 * coap Client ï¿½bergeben, damit dieser auf Antworten des Coap Server
 	 * reagieren kann
 	 * 
 	 */
@@ -27,14 +27,16 @@ public class TcpServerThread implements Runnable {
 		while (true) {
 			try {
 
-				ServerSocket serverSocket = new ServerSocket(port);
+				@SuppressWarnings("resource")
+				ServerSocket socket = new ServerSocket(port);
 				System.out.println("Binden von Socket an Port " + port
 						+ " erfolgreich.");
-				Socket clientSocket = serverSocket.accept();
+				
+				Socket clientSocket = socket.accept();
 				System.out.println("Socketverbindung mit FHEM Modul an Port "
 						+ port + " erfolgreich.");
 
-				FhemCoapClient fhemClient = new FhemCoapClient(clientSocket);
+				FhemCoapWrapper fhemClient = new FhemCoapWrapper(clientSocket);
 
 				while (true) {
 
