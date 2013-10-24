@@ -1,0 +1,116 @@
+2013-10-24 13:26:27 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 13:26:27 [coap.EndpointAddress] WARNING - Cannot fully initialize: coap: Systemfehler
+2013-10-24 13:26:27 [coap.TokenManager] INFO - Token value: 94
+2013-10-24 13:26:58 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 13:27:45 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 13:28:18 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 13:29:14 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 13:29:15 [coap.TokenManager] INFO - Token value: 203
+2013-10-24 13:29:15 [layers.CoapStack] INFO - CoapStack started
+2013-10-24 13:29:15 [layers.TokenLayer] INFO - Requesting response for /sensors/sht21_temperature: [aaaa:0:0:0:221:2eff:ff00:1962]:5683#CB
+2013-10-24 13:29:15 [layers.TokenLayer] FINE - Stored new exchange: [aaaa:0:0:0:221:2eff:ff00:1962]:5683#CB
+2013-10-24 13:29:15 [layers.MatchingLayer] FINER - Storing open request: [aaaa:0:0:0:221:2eff:ff00:1962]:5683#CB
+2013-10-24 13:29:15 [layers.TransactionLayer] FINEST - Stored new transaction for [aaaa:0:0:0:221:2eff:ff00:1962]:5683|3601|CON
+2013-10-24 13:29:15 [coap.Message] SEVERE - Could not respond to message: [aaaa:0:0:0:221:2eff:ff00:1962]:5683|3601|CON
+Das Netzwerk ist nicht erreichbar
+2013-10-24 13:29:17 [layers.TransactionLayer] INFO - Retransmitting [aaaa:0:0:0:221:2eff:ff00:1962]:5683|3601|CON (1 of 4)
+2013-10-24 13:29:17 [layers.TransactionLayer] SEVERE - Retransmission failed: Das Netzwerk ist nicht erreichbar
+2013-10-24 13:29:17 [layers.TransactionLayer] FINEST - Cleared transaction for [aaaa:0:0:0:221:2eff:ff00:1962]:5683|3601|CON
+2013-10-24 13:31:40 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 13:31:40 [coap.TokenManager] INFO - Token value: 170
+2013-10-24 13:31:41 [layers.CoapStack] INFO - CoapStack started
+2013-10-24 13:31:41 [layers.TokenLayer] INFO - Requesting response for /path/sub1: 129.132.15.80:5683#AA
+2013-10-24 13:31:41 [layers.TokenLayer] FINE - Stored new exchange: 129.132.15.80:5683#AA
+2013-10-24 13:31:41 [layers.MatchingLayer] FINER - Storing open request: 129.132.15.80:5683#AA
+2013-10-24 13:31:41 [layers.TransactionLayer] FINEST - Stored new transaction for 129.132.15.80:5683|20750|CON
+2013-10-24 13:31:41 [layers.TransactionLayer] FINEST - Cleared transaction for 129.132.15.80:5683|20750|CON
+2013-10-24 13:31:41 [layers.MatchingLayer] FINER - Matched open request: 129.132.15.80:5683#AA
+2013-10-24 13:31:41 [layers.MatchingLayer] FINER - Cleared open request: 129.132.15.80:5683#AA
+2013-10-24 13:31:41 [coap.TokenManager] WARNING - Token to release is not acquired: AA
+
+2013-10-24 13:31:41 [layers.TokenLayer] FINER - Cleared exchange: 129.132.15.80:5683#AA
+2013-10-24 13:31:41 [layers.TokenLayer] INFO - Incoming response from /path/sub1: 129.132.15.80:5683#AA // RTT: 30,122733ms
+2013-10-24 13:40:55 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 13:40:55 [coap.TokenManager] INFO - Token value: 247
+2013-10-24 13:40:55 [layers.CoapStack] INFO - CoapStack started
+2013-10-24 13:40:55 [layers.TokenLayer] INFO - Requesting response for /path/sub1: 129.132.15.80:5683#F7
+2013-10-24 13:40:55 [layers.TokenLayer] FINE - Stored new exchange: 129.132.15.80:5683#F7
+2013-10-24 13:40:55 [layers.MatchingLayer] FINER - Storing open request: 129.132.15.80:5683#F7
+2013-10-24 13:40:55 [layers.TransactionLayer] FINEST - Stored new transaction for 129.132.15.80:5683|22911|CON
+2013-10-24 13:40:55 [layers.TransactionLayer] FINEST - Cleared transaction for 129.132.15.80:5683|22911|CON
+2013-10-24 13:40:55 [layers.MatchingLayer] FINER - Matched open request: 129.132.15.80:5683#F7
+2013-10-24 13:40:55 [layers.MatchingLayer] FINER - Cleared open request: 129.132.15.80:5683#F7
+2013-10-24 13:40:55 [coap.TokenManager] WARNING - Token to release is not acquired: F7
+
+2013-10-24 13:40:55 [layers.TokenLayer] FINER - Cleared exchange: 129.132.15.80:5683#F7
+2013-10-24 13:40:55 [layers.TokenLayer] INFO - Incoming response from /path/sub1: 129.132.15.80:5683#F7 // RTT: 29,587995ms
+2013-10-24 14:07:22 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 14:07:22 [coap.TokenManager] INFO - Token value: 159
+2013-10-24 14:07:22 [layers.CoapStack] INFO - CoapStack started
+2013-10-24 14:07:22 [layers.TokenLayer] INFO - Requesting response for /path/sub1: 129.132.15.80:5683#9F
+2013-10-24 14:07:22 [layers.TokenLayer] FINE - Stored new exchange: 129.132.15.80:5683#9F
+2013-10-24 14:07:22 [layers.MatchingLayer] FINER - Storing open request: 129.132.15.80:5683#9F
+2013-10-24 14:07:22 [layers.TransactionLayer] FINEST - Stored new transaction for 129.132.15.80:5683|31000|CON
+2013-10-24 14:07:22 [layers.TransactionLayer] FINEST - Cleared transaction for 129.132.15.80:5683|31000|CON
+2013-10-24 14:07:22 [layers.MatchingLayer] FINER - Matched open request: 129.132.15.80:5683#9F
+2013-10-24 14:07:22 [layers.MatchingLayer] FINER - Cleared open request: 129.132.15.80:5683#9F
+2013-10-24 14:07:22 [coap.TokenManager] WARNING - Token to release is not acquired: 9F
+
+2013-10-24 14:07:22 [layers.TokenLayer] FINER - Cleared exchange: 129.132.15.80:5683#9F
+2013-10-24 14:07:22 [layers.TokenLayer] INFO - Incoming response from /path/sub1: 129.132.15.80:5683#9F // RTT: 30,931456ms
+2013-10-24 14:12:46 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 14:12:47 [coap.TokenManager] INFO - Token value: 2
+2013-10-24 14:12:47 [layers.CoapStack] INFO - CoapStack started
+2013-10-24 14:12:47 [layers.TokenLayer] INFO - Requesting response for /path/sub1: 129.132.15.80:5683#02
+2013-10-24 14:12:47 [layers.TokenLayer] FINE - Stored new exchange: 129.132.15.80:5683#02
+2013-10-24 14:12:47 [layers.MatchingLayer] FINER - Storing open request: 129.132.15.80:5683#02
+2013-10-24 14:12:47 [layers.TransactionLayer] FINEST - Stored new transaction for 129.132.15.80:5683|19926|CON
+2013-10-24 14:12:47 [layers.TransactionLayer] FINEST - Cleared transaction for 129.132.15.80:5683|19926|CON
+2013-10-24 14:12:47 [layers.MatchingLayer] FINER - Matched open request: 129.132.15.80:5683#02
+2013-10-24 14:12:47 [layers.MatchingLayer] FINER - Cleared open request: 129.132.15.80:5683#02
+2013-10-24 14:12:47 [coap.TokenManager] WARNING - Token to release is not acquired: 02
+
+2013-10-24 14:12:47 [layers.TokenLayer] FINER - Cleared exchange: 129.132.15.80:5683#02
+2013-10-24 14:12:47 [layers.TokenLayer] INFO - Incoming response from /path/sub1: 129.132.15.80:5683#02 // RTT: 34,336425ms
+2013-10-24 14:19:25 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 14:19:25 [coap.TokenManager] INFO - Token value: 119
+2013-10-24 14:19:25 [layers.CoapStack] INFO - CoapStack started
+2013-10-24 14:19:25 [layers.TokenLayer] INFO - Requesting response for /path/sub1: 129.132.15.80:5683#77
+2013-10-24 14:19:25 [layers.TokenLayer] FINE - Stored new exchange: 129.132.15.80:5683#77
+2013-10-24 14:19:25 [layers.MatchingLayer] FINER - Storing open request: 129.132.15.80:5683#77
+2013-10-24 14:19:25 [layers.TransactionLayer] FINEST - Stored new transaction for 129.132.15.80:5683|36720|CON
+2013-10-24 14:19:25 [layers.TransactionLayer] FINEST - Cleared transaction for 129.132.15.80:5683|36720|CON
+2013-10-24 14:19:25 [layers.MatchingLayer] FINER - Matched open request: 129.132.15.80:5683#77
+2013-10-24 14:19:25 [layers.MatchingLayer] FINER - Cleared open request: 129.132.15.80:5683#77
+2013-10-24 14:19:25 [coap.TokenManager] WARNING - Token to release is not acquired: 77
+
+2013-10-24 14:19:25 [layers.TokenLayer] FINER - Cleared exchange: 129.132.15.80:5683#77
+2013-10-24 14:19:25 [layers.TokenLayer] INFO - Incoming response from /path/sub1: 129.132.15.80:5683#77 // RTT: 34,822639ms
+2013-10-24 14:28:30 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 14:28:30 [coap.TokenManager] INFO - Token value: 174
+2013-10-24 14:28:30 [layers.CoapStack] INFO - CoapStack started
+2013-10-24 14:28:30 [layers.TokenLayer] INFO - Requesting response for /path/sub1: 129.132.15.80:5683#AE
+2013-10-24 14:28:30 [layers.TokenLayer] FINE - Stored new exchange: 129.132.15.80:5683#AE
+2013-10-24 14:28:30 [layers.MatchingLayer] FINER - Storing open request: 129.132.15.80:5683#AE
+2013-10-24 14:28:30 [layers.TransactionLayer] FINEST - Stored new transaction for 129.132.15.80:5683|35805|CON
+2013-10-24 14:28:30 [layers.TransactionLayer] FINEST - Cleared transaction for 129.132.15.80:5683|35805|CON
+2013-10-24 14:28:30 [layers.MatchingLayer] FINER - Matched open request: 129.132.15.80:5683#AE
+2013-10-24 14:28:30 [layers.MatchingLayer] FINER - Cleared open request: 129.132.15.80:5683#AE
+2013-10-24 14:28:30 [coap.TokenManager] WARNING - Token to release is not acquired: AE
+
+2013-10-24 14:28:30 [layers.TokenLayer] FINER - Cleared exchange: 129.132.15.80:5683#AE
+2013-10-24 14:28:30 [layers.TokenLayer] INFO - Incoming response from /path/sub1: 129.132.15.80:5683#AE // RTT: 29,742387ms
+2013-10-24 14:52:51 [util.Log] INFO - ==[ START-UP ]========================================================
+2013-10-24 14:52:51 [coap.TokenManager] INFO - Token value: 90
+2013-10-24 14:52:52 [layers.CoapStack] INFO - CoapStack started
+2013-10-24 14:52:52 [layers.TokenLayer] INFO - Requesting response for /path/sub1: 129.132.15.80:5683#5A
+2013-10-24 14:52:52 [layers.TokenLayer] FINE - Stored new exchange: 129.132.15.80:5683#5A
+2013-10-24 14:52:52 [layers.MatchingLayer] FINER - Storing open request: 129.132.15.80:5683#5A
+2013-10-24 14:52:52 [layers.TransactionLayer] FINEST - Stored new transaction for 129.132.15.80:5683|56689|CON
+2013-10-24 14:52:52 [layers.TransactionLayer] FINEST - Cleared transaction for 129.132.15.80:5683|56689|CON
+2013-10-24 14:52:52 [layers.MatchingLayer] FINER - Matched open request: 129.132.15.80:5683#5A
+2013-10-24 14:52:52 [layers.MatchingLayer] FINER - Cleared open request: 129.132.15.80:5683#5A
+2013-10-24 14:52:52 [coap.TokenManager] WARNING - Token to release is not acquired: 5A
+
+2013-10-24 14:52:52 [layers.TokenLayer] FINER - Cleared exchange: 129.132.15.80:5683#5A
+2013-10-24 14:52:52 [layers.TokenLayer] INFO - Incoming response from /path/sub1: 129.132.15.80:5683#5A // RTT: 28,602333ms
