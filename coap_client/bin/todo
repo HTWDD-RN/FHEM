@@ -1,5 +1,0 @@
-- Timeout für Coap Client, wenn keine Antwort
-- Fehlerbehandlung ausbauen (eventuell vordefinierte Fehlernachrichten an FHEM-Modul senden)
-- Logging der Anfragen und Fehler in Logfile
-- routing ipv6 adresse???
-- 0 (korrekt) oder 1|uri|response

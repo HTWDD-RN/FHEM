@@ -20,13 +20,13 @@ my %discover_requests;
 
 # Enthaelt alle moeglichen get-Befehle fuer das WSNPHD-Geraet
 my %gets = (    # Name, Data to send to the CUL, Regexp for the answer
-  "discovery"   => ""
+	"discover"   => ""
 );
 
 # Enthaelt alle moeglichen set-Befehle fuer das WSNPHD-Geraet
 my %sets = (
-  "wsnPair" => "",
-  "client" => ""
+	"wsnPair" => "",
+	"client" => ""
 );
 
 ###############################################################
@@ -36,9 +36,9 @@ my %sets = (
 # Die Modul-Funktionen werden FHEM bekannt gegeben.
 ###############################################################
 sub WSNPHD_Initialize($) {
-  my ($hash) = @_;
-    
-  require "$attr{global}{modpath}/FHEM/DevIo.pm";
+
+	my ($hash) = @_;	    
+	require "$attr{global}{modpath}/FHEM/DevIo.pm";
   
 	$hash->{ReadFn}  = "WSNPHD_Read";
 	$hash->{WriteFn} = "WSNPHD_Write";
@@ -47,6 +47,7 @@ sub WSNPHD_Initialize($) {
 	$hash->{SetFn}   = "WSNPHD_Set";
 	$hash->{DefFn}   = "WSNPHD_Define";	
     $hash->{AttrList}  = "loglevel:0,1,2,3,4,5,6 setList";
+    
     # definieren aller logischen Module, die WSNPHD nutzen duerfen
 	$hash->{Clients} = ":WSN:";
 	
@@ -65,13 +66,15 @@ sub WSNPHD_Initialize($) {
 # werden die Eigenschaften des neuen FHEM-Geraetes gesetzt.
 ###############################################################
 sub WSNPHD_Define($$) {
+
+	Log(3, "WSNPHD_Define called");
 	my ($hash, $def) = @_;
 	my @a = split("[ \t][ \t]*", $def);
 	
 	# Parameteranzahl pruefen
 	if(@a != 3) {
 		my $msg = "wrong syntax: define <name> WSNPHD ip[:port]";
-		Log 2, $msg;
+		Log(2, $msg);
 		return $msg;
 	}
 	
@@ -86,7 +89,7 @@ sub WSNPHD_Define($$) {
 	$attr{$name}{hmId} = sprintf("%06X", time() % 0xffffff); # wird vermutlich nicht benoetigt
 	
 	if($dev eq "none") {
-		Log 1, "$name device is none, commands will be echoed only";
+		Log(1, "$name device is none, commands will be echoed only");
 		$attr{$name}{dummy} = 1;
 		return undef;
 	}
@@ -112,6 +115,8 @@ sub WSNPHD_Define($$) {
 # Parse-Funktion uebergeben.
 ###############################################################
 sub WSNPHD_Read($) {
+	
+	Log(3, "WSNPHD_Read called");
 	# called from the global loop, when the select for hash->{FD} reports data
 	my ($hash) = @_;
 
@@ -124,7 +129,7 @@ sub WSNPHD_Read($) {
 	my $hmdata = $hash->{PARTIAL};
 	Log $ll5, "WSN/RAW: $hmdata/$buf" if (!$debug);
 	$hmdata .= $buf;
-
+	
 	while($hmdata =~ m/\n/) { # process every single message from message buffer
 		my $rmsg;
 
@@ -138,12 +143,14 @@ sub WSNPHD_Read($) {
 }
 
 ###############################################################
-# WSNPHD_Read
+# WSNPHD_Write
 #
 # Wenn ein WSN-Geraet oder eine WSNPHD-Funktion Daten per Socket
 # senden moechten, wird diese Funktion gerufen.
 ###############################################################
 sub WSNPHD_Write($$) {
+	
+	Log(3, "WSNPHD_Write called");
 	my ($hash,$msg) = @_;
 
 	#Log 3, $hash->{NAME} . "InWrite ::" .$hash->{TCPDev};
@@ -159,6 +166,7 @@ sub WSNPHD_Write($$) {
 # falls diese unterbrochen worde
 ###############################################################
 sub WSNPHD_Ready($) {
+	
 	# TODO: reopen connection if lost
 	my ($hash) = @_;
 	
@@ -172,84 +180,84 @@ sub WSNPHD_Ready($) {
 # WSNPHD_Get
 #
 # Wird verwendet, um "globale Befehle" an CoAP-Server zu schicken.
-# Momentan wird hier nur das discover(y) gehandhabt.
+# Momentan wird hier nur das discover gehandhabt.
 ###############################################################
-sub
-WSNPHD_Get($@)
-{
-  my ($hash, @a) = @_;
-  my $type = $hash->{TYPE};
+sub WSNPHD_Get($@) {
+	
+	Log(3, "WSNPHD_Get called");
+	my ($hash, @a) = @_;
+	my $type = $hash->{TYPE};
+	
+	# Pruefe die Argumente
+	return "\"get $type\" needs at least one parameter" if(@a < 3);
+	return "Unknown argument $a[1], choose one of " . join(" ", sort keys %gets)
+	if(!defined($gets{$a[1]}));
+	
+	my $arg = ($a[2] ? $a[2] : "");
+	my $name = $a[0];
+	my $type = $a[1];
+	my $uri  = $a[2];
 
-  # Pruefe die Argumente
-  return "\"get $type\" needs at least one parameter" if(@a < 3);
-  return "Unknown argument $a[1], choose one of " . join(" ", sort keys %gets)
-  	if(!defined($gets{$a[1]}));
-
-  my $arg = ($a[2] ? $a[2] : "");
-  my $name = $a[0];
-  my $type = $a[1];
-  my $uri  = $a[2];
   
-  #Log 3, $hash->{NAME} . "WSNPHD: ". $name . "::". $type."::".$arg;
-  
-  if($type eq "discovery") {
+	if($type eq "discover") {
 		
 		# baue Nachricht fuer CoAP-Client zusammen
 		my $msg = "discover|".$uri."\n";
-		
+			
 		# Speichert die abgesendete discovery-Anfrage, um spaeter
 		# bei eingehenden Discovery-Antworten zu pruefen, ob diese
 		# angefordert wurde.
 		#$discover_requests{$msg} = 1;
-
 		#Log 3, $hash->{NAME} . "WSNPHD disc: ". $msg;
-		
+				
 		WSNPHD_Write($hash,$msg);	
-  }
-  
-  return "";
+	}
+	 
+	return "";
 }
 
 ###############################################################
-# WSNPHD_Get
+# WSNPHD_Set
 #
 # Wird verwendet, um "globale Befehle" an CoAP-Server zu schicken
 # und Attribute des WSNPHD-Geraetes zu aendern.
 # Momentan wird hier nur das discover(y) gehandhabt.
 ###############################################################
 sub WSNPHD_Set($@) {
-  my ($hash, @a) = @_;
-
-  return "\"set WSNPHD\" needs at least one parameter" if(@a < 3);
-  return "Unknown argument $a[1], choose one of " . join(" ", sort keys %sets)
-  	if(!defined($sets{$a[1]}));
-
-  my $name = $a[0];
-  my $type = $a[1];
-  my $v  = $a[2];
-  
-  #Log 3, $hash->{NAME} . "WSNPHD: ". $name . "::". $type."::".$arg;
-  
-  if ($type eq "wsnPair") { # fuer zukuenftigen Pairing-Befehl
-  
-  }
-  elsif ($type eq "client") { # zum Aendern der IP und des Ports
-	my $ip_port = $v;
-	my @t = split(":", $ip_port);
+	 
+	Log(3, "WSNPHD_Set called");
+	my ($hash, @a) = @_;
 	
-	$hash->{IP} = $t[0];
-	$hash->{PORT} = $t[1];
-	
-	#muesste noch im Geraet aktualisiert werden
-	#$hash->{DeviceName} =  $t[0].":". $t[1];
-	# wahrscheinlich auch DevIo open und close ausfuehren
-	
-	$coap_cl_ip = $t[0];
-	$coap_cl_port = $t[1];
-  }
-  
-  return "";
+	return "\"set WSNPHD\" needs at least one parameter" if(@a < 3);
+	return "Unknown argument $a[1], choose one of " . join(" ", sort keys %sets)
+	if(!defined($sets{$a[1]}));
+		
+	my $name = $a[0];
+	my $type = $a[1];
+	my $v  = $a[2];
+		   
+	if ($type eq "wsnPair") {
+		# fuer zukuenftigen Pairing-Befehl
+	}
+	elsif ($type eq "client") { 
+		# zum Aendern der IP und des Ports
+		my $ip_port = $v;
+		my @t = split(":", $ip_port);
+				
+		$hash->{IP} = $t[0];
+		$hash->{PORT} = $t[1];
+				
+		#muesste noch im Geraet aktualisiert werden
+		#$hash->{DeviceName} =  $t[0].":". $t[1];
+		# wahrscheinlich auch DevIo open und close ausfuehren
+				
+		$coap_cl_ip = $t[0];
+		$coap_cl_port = $t[1];
+	}
+		  
+	return "";
 }
+
 
 ###############################################################
 # WSNPHD_Parse
@@ -257,31 +265,15 @@ sub WSNPHD_Set($@) {
 # Wird von der WSNPHD_Read-Funktion gerufen
 ###############################################################
 sub WSNPHD_Parse($$) {
-  my ($hash, $rmsg) = @_;
   
-  Log 3, $hash->{NAME} . " RCV_MSG: $rmsg";
-
-
-  # concat 
-  my $dmsg = "WSN" . $rmsg;
-  
-  # Pruefen ob Discovery-Nachricht angefordert wurde
-  #my @v = split('\|', $msg);
-  #
-  #if ($v[0] == 1) {
-	#if(!exists($discover_requests{$v[1]})) {
-		#Log 3, "WSNPHD received unrequested discovery response from uri" . $v[1];
-		#return;
-	#} 
-  #}
-  
-  # call dispatch for invoking right module func
-  Dispatch($hash, $dmsg, undef);
-  
-  # Alternative zum Dispatcher 
-  #!!! Vorsicht fuehrt zum Absturz, falls WSN-Modul nicht geladen !!!
-  #WSN_Parse($hash,$dmsg);
-  
+	Log(3, "WSNPHD_Parse called");
+	my ($hash, $rmsg) = @_;
+	
+	# concat 
+	my $dmsg = "WSN" . $rmsg; 
+	  
+	# call dispatch for invoking right module func
+	Dispatch($hash, $dmsg, undef);  
 }
 
 sub WSNPHD_InitComm($) {

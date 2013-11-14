@@ -34,8 +34,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.UnknownHostException;
-import java.util.Enumeration;
-import java.util.Vector;
 import java.util.logging.Level;
 
 import ch.ethz.inf.vs.californium.coap.DELETERequest;
@@ -76,7 +74,7 @@ import ch.ethz.inf.vs.californium.util.Log;
 public class CoapClient {
 
 	// Our collection of classes that are subscribed as listeners of our
-	protected  Vector<CoapResponseEvent> listeners;
+	protected  CoapResponseListener listener;
 
 	// resource URI path used for discovery
 	private static final String DISCOVERY_RESOURCE = "/.well-known/core";
@@ -103,11 +101,8 @@ public class CoapClient {
 	public static final String DELETE = "DELETE";
 
 	// Method for listener classes to register themselves
-	public void initListener(CoapResponseEvent listener) {
-		if (listeners == null)
-			listeners = new Vector<CoapResponseEvent>();
-
-		listeners.addElement(listener);
+	public CoapClient(CoapResponseListener listener) {
+		this.listener = listener;
 	}
 
 	/*
@@ -238,15 +233,8 @@ public class CoapClient {
 							+ response.getRTT());
 
 					// Raise event to notify Fhem
-					if (listeners != null) {
-						Enumeration<CoapResponseEvent> e = listeners.elements();
-						while (e.hasMoreElements()) {
-							CoapResponseEvent event = (CoapResponseEvent) e
-									.nextElement();
-							event.response(response, method);
-						}
-					}
-
+					listener.notify(response, method);
+					
 					// check of response contains resources
 					if (response.getContentType() == MediaTypeRegistry.APPLICATION_LINK_FORMAT) {
 

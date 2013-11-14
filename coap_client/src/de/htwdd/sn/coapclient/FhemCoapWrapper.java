@@ -9,7 +9,7 @@ import org.apache.http.ParseException;
 import ch.ethz.inf.vs.californium.coap.Request;
 import ch.ethz.inf.vs.californium.coap.Response;
 
-public class FhemCoapWrapper implements CoapResponseEvent {
+public class FhemCoapWrapper implements CoapResponseListener {
 
 	private Socket socket;
 	private CoapClient coapClient;
@@ -45,10 +45,8 @@ public class FhemCoapWrapper implements CoapResponseEvent {
 	 */
 	public void request(String request) {
 		
-		if (coapClient == null) {
-			coapClient = new CoapClient();
-			coapClient.initListener(this);
-		}
+		if (coapClient == null) 
+			coapClient = new CoapClient(this);
 		
 		System.out.println("Execute request: " + request);			
 		try {
@@ -59,6 +57,10 @@ public class FhemCoapWrapper implements CoapResponseEvent {
 				throw new ParseException("Request has incorrect syntax!");
 			
 			String method = args[0].toUpperCase();
+			
+			if (method.equalsIgnoreCase("set"))
+				method = CoapClient.PUT;
+			
 			String uri = protocol + args[1];		
 			coapClient.process(new String[]{ method, uri });
 		
@@ -73,15 +75,19 @@ public class FhemCoapWrapper implements CoapResponseEvent {
 	 * example: "2|[aaaa:0:0:0:221:2eff:ff00:1962]:5683/sensors/sht21_temperature|22,5�"
 	 */
 	@Override
-	public void response(Response coapResponse, String method) {
+	public void notify(Response coapResponse, String method) {
 		
 		String responseFormat = "%s|%s|%s";
 		Request request = coapResponse.getRequest();
-		String uri = protocol + request.getUriHost() + request.getUriPath();
+		String uri = request.getUriHost() + request.getUriPath();
 		String returnCode = "10";
 		
-		if (method.equals(CoapClient.DISCOVER)) 			
+		if (method.equals(CoapClient.DISCOVER)) {	
+			
+			//Remove .well-known header from Discover address
+			uri = uri.replace("/.well-known/core", "");
 			returnCode = "1";
+		}
 		
 		else if (method.equals(CoapClient.GET))
 			returnCode = "2";

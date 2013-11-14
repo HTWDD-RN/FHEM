@@ -25,5 +25,6 @@ define eventTypes eventTypes ./log/eventTypes.txt
 # Disable this to avoid looking for new USB devices on startup
 define initialUsbCheck notify global:INITIALIZED usb create 
 
-# Define TCP Client (to communicate with CoAP Client over Socket-Connection)
+# Define TCP Client and test resource (eth zürich)
 define tcpclient WSNPHD localhost:50009
+define obs_test WSN vs0.inf.ethz.ch:5683/obs
