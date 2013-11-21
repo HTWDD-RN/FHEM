@@ -5,6 +5,12 @@ use strict;
 use warnings;
 use IO::Socket; 
 
+# TODO: Standard verwenden bzw definieren (aus FS20 übernehmen?)
+my %models = (
+    temperature  => 'sender',
+    humadity     => 'sender'
+);
+
 ###############################################################
 # WSN_Initialize
 #
@@ -20,7 +26,9 @@ sub WSN_Initialize($) {
 	$hash->{GetFn}     = "WSN_Get";
 	$hash->{SetFn}     = "WSN_Set";
 	$hash->{IODev}	 = "WSNPHD"; #hw-modul
-	$hash->{AttrList}  = "loglevel:0,1,2,3,4,5,6 setList";
+	$hash->{AttrList}  = "loglevel:0,1,2,3,4,5,6 setList model:"
+						.join(",", sort keys %models);
+							
 	$hash->{ParseFn}   = "WSN_Parse";
 }
 
@@ -42,15 +50,12 @@ sub WSN_Parse($$) {
 	
 	# search for device
 	my $def = $modules{WSN}{defptr}{$v[1]};
-	if($def) 
-	{	
-		if ($v[0] == 0)
-		{	
-			Log(3, "WSN " . $def->{NAME} ." state changed from " . $def->{STATE} . " to $v[2]");
-		}
+	if($def) {			
+		
+		Log(3, "WSN " . $def->{NAME} ." state changed from " . $def->{STATE} . " to $v[2]");
 	}
-    elsif ($v[0] eq "WSN1")  #  WSN1=discover response
-    {
+    elsif ($v[0] eq "WSN1") { #  WSN1=discover response
+		
 		my $regex = "<\/([a-z0-9_-]+\/?)+>";  # detect uri tags
 		my $serveraddr = $v[1];
 		my $string = $v[2];
