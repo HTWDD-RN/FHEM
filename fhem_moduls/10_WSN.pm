@@ -47,13 +47,10 @@ sub WSN_Parse($$) {
 	
 	Log(3, "WSN_Parse, Code: $v[0], Uri: $v[1], Value: $v[2]");
 	
-	# search for device
+	# search for device	
 	my $def = $modules{WSN}{defptr}{$v[1]};
-	if($def) {			
-		
-		Log(3, "WSN " . $def->{NAME} ." state changed from " . $def->{STATE} . " to $v[2]");
-	}
-    elsif ($v[0] eq "WSN1") {
+	
+    if ($v[0] eq "WSN1") {
 		    
 		Log(3, "discover response received"); 
 		  
@@ -64,16 +61,16 @@ sub WSN_Parse($$) {
     elsif($v[0] eq "WSN2") { 
     	
     	Log(3, "get response received");   
-	   	 
-	   	# set get response
-		$def->{STATE} = $v[2];	   
+    	
+    	# set get response
+		$def->{STATE} = $v[2];	  		
     }
 	else {
 		Log(3, $v[0] . " is not a valid return code");			
 		$v[2] = "error";
-	}
-
-	$def->{READINGS}{state}{TIME} = TimeNow();		
+	}	
+	
+	$def->{READINGS}{state}{TIME} = TimeNow();	 
 }
 
 ###############################################################

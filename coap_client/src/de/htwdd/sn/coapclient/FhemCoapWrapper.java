@@ -88,7 +88,7 @@ public class FhemCoapWrapper implements CoapResponseListener {
 			uri = uri.replace("/.well-known/core", "");
 			returnCode = "1";
 		}
-		
+			
 		else if (method.equals(CoapClient.GET))
 			returnCode = "2";
 		
@@ -97,7 +97,7 @@ public class FhemCoapWrapper implements CoapResponseListener {
 		
 		else if (method.equals(CoapClient.OBSERVE))
 			returnCode = "4";
-		
+				
 		String response = String.format(responseFormat, returnCode, uri, coapResponse.getPayloadString());
 		
 		if (socket != null) {
