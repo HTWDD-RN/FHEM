@@ -49,6 +49,7 @@ import ch.ethz.inf.vs.californium.coap.registries.OptionNumberRegistry;
 import ch.ethz.inf.vs.californium.endpoint.resources.RemoteResource;
 import ch.ethz.inf.vs.californium.endpoint.resources.Resource;
 import ch.ethz.inf.vs.californium.util.Log;
+import ch.ethz.inf.vs.californium.coap.registries.CodeRegistry;
 
 /**
  * This class implements a simple CoAP client for testing purposes. Usage:
@@ -79,19 +80,9 @@ public class CoapClient {
 	// resource URI path used for discovery
 	private static final String DISCOVERY_RESOURCE = "/.well-known/core";
 
-	// indices of command line parameters
 	private static final int IDX_METHOD = 0;
 	private static final int IDX_URI = 1;
 	private static final int IDX_PAYLOAD = 2;
-
-	// exit codes for runtime errors
-	private static final int ERR_MISSING_METHOD = 1;
-	private static final int ERR_UNKNOWN_METHOD = 2;
-	private static final int ERR_MISSING_URI = 3;
-	private static final int ERR_BAD_URI = 4;
-	private static final int ERR_REQUEST_FAILED = 5;
-	private static final int ERR_RESPONSE_FAILED = 6;
-	private static final int ERR_BAD_LINK_FORMAT = 7;
 
 	public static final String GET = "GET";
 	public static final String PUT = "PUT";
@@ -99,14 +90,15 @@ public class CoapClient {
 	public static final String OBSERVE = "OBSERVE";
 	public static final String POST = "POST";
 	public static final String DELETE = "DELETE";
-
+	public static final String ERROR = "ERROR";
+	
 	// Method for listener classes to register themselves
 	public CoapClient(CoapResponseListener listener) {
 		this.listener = listener;
 	}
 
 	/*
-	 * Main method of this client.
+	 * process request
 	 */
 	public void process(String[] args) {
 
@@ -116,6 +108,7 @@ public class CoapClient {
 		String payload = null;
 		boolean loop = false;
 		Response response = null;
+		String error = "";
 
 		// display help if no parameters specified
 		if (args.length == 0)
@@ -142,9 +135,10 @@ public class CoapClient {
 					try {
 						uri = new URI(arg);
 					} catch (URISyntaxException e) {
-						System.err.println("Failed to parse URI: "
-								+ e.getMessage());
-						System.exit(ERR_BAD_URI);
+						error = "Failed to parse URI: " + e.getMessage();
+						System.err.println(error);
+						listener.notify("", ERROR, error);
+						return;
 					}
 					break;
 				case IDX_PAYLOAD:
@@ -156,22 +150,29 @@ public class CoapClient {
 				++idx;
 			}
 		}
+		
+		if (uri == null) {
+			error = "URI not specified";
+			System.err.println(error);
+			listener.notify("", ERROR, error);
+			return;
+		}
 
 		// check if mandatory parameters specified
 		if (method == null) {
-			System.err.println("Method not specified");
-			System.exit(ERR_MISSING_METHOD);
-		}
-		if (uri == null) {
-			System.err.println("URI not specified");
-			System.exit(ERR_MISSING_URI);
+			error = "Method not specified";
+			listener.notify(uri.toString(), ERROR, error);
+			System.err.println(error);
+			return;
 		}
 
 		// create request according to specified method
 		Request request = newRequest(method);
 		if (request == null) {
-			System.err.println("Unknown method: " + method);
-			System.exit(ERR_UNKNOWN_METHOD);
+			error = "Unknown method: " + method;
+			System.err.println(error);
+			listener.notify(uri.toString(), ERROR, error);
+			return;
 		}
 
 		if (method.equals(OBSERVE)) {
@@ -189,8 +190,11 @@ public class CoapClient {
 						DISCOVERY_RESOURCE, uri.getQuery());
 
 			} catch (URISyntaxException e) {
-				System.err.println("Failed to parse URI: " + e.getMessage());
-				System.exit(ERR_BAD_URI);
+				
+				error = "Failed to parse URI: " + e.getMessage();
+				System.err.println(error);
+				listener.notify(uri.toString(), ERROR, error);
+				return;
 			}
 		}
 
@@ -201,8 +205,6 @@ public class CoapClient {
 
 		// enable response queue in order to use blocking I/O
 		request.enableResponseQueue(true);
-
-		//
 		request.prettyPrint();
 
 		// execute request
@@ -213,28 +215,44 @@ public class CoapClient {
 			do {
 
 				// receive response
-
 				System.out.println("Receiving response...");
 
 				try {
 					response = request.receiveResponse();
 				} catch (InterruptedException e) {
-					System.err.println("Failed to receive response: "
-							+ e.getMessage());
-					System.exit(ERR_RESPONSE_FAILED);
+					error = "Failed to receive response: " + e.getMessage();
+					System.err.println(error);
+					listener.notify(uri.toString(), ERROR, error);
+					return;
 				}
 
 				// output response
-
 				if (response != null) {
 
 					response.prettyPrint();
 					System.out.println("Time elapsed (ms): "
 							+ response.getRTT());
-
-					// Raise event to notify Fhem
-					listener.notify(response, method);
 					
+					if (response.getCode() == CodeRegistry.RESP_FORBIDDEN
+							|| response.getCode() == CodeRegistry.RESP_METHOD_NOT_ALLOWED) {
+						listener.notify(
+								request.getUriHost() + request.getUriPath()
+								,ERROR 
+								,"METHOD " + method + " is not allowed");
+					}
+					else if (response.getCode() == CodeRegistry.RESP_CHANGED) {
+						listener.notify(
+								request.getUriHost() + request.getUriPath()
+								,method 
+								,"changed");	
+					}
+					else {
+						listener.notify(
+								request.getUriHost() + request.getUriPath(), 
+								method, 
+								response.getPayloadString());	
+					}
+
 					// check of response contains resources
 					if (response.getContentType() == MediaTypeRegistry.APPLICATION_LINK_FORMAT) {
 
@@ -249,37 +267,42 @@ public class CoapClient {
 							root.prettyPrint();
 
 						} else {
-							System.err.println("Failed to parse link format");
-							System.exit(ERR_BAD_LINK_FORMAT);
+							error = "Failed to parse link format";
+							System.err.println(error);
+							listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
 						}
 					} else {
 
 						// check if link format was expected by client
 						if (method.equals(DISCOVER)) {
-							System.out
-									.println("Server error: Link format not specified");
+							error = "Server error: Link format not specified";
+							System.err.println(error);
+							listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
 						}
 					}
 
 				} else {
 
+					error = "Request timed out";
+					listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
+					
 					// no response received
-					System.err.println("Request timed out");
+					System.err.println(error);
 					break;
 				}
 
 			} while (loop);
 
 		} catch (UnknownHostException e) {
-			System.err.println("Unknown host: " + e.getMessage());
-			System.exit(ERR_REQUEST_FAILED);
+			error = "Unknown host: " + e.getMessage();
+			System.err.println(error);
+			listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
+		
 		} catch (IOException e) {
-			System.err.println("Failed to execute request: " + e.getMessage());
-			System.exit(ERR_REQUEST_FAILED);
+			error = "Failed to execute request: " + e.getMessage();
+			System.err.println(error);
+			listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
 		}
-
-		// finish
-		System.out.println();
 	}
 
 	/*

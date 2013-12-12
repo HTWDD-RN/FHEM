@@ -6,14 +6,12 @@ import java.net.Socket;
 
 import org.apache.http.ParseException;
 
-import ch.ethz.inf.vs.californium.coap.Request;
-import ch.ethz.inf.vs.californium.coap.Response;
-
 public class FhemCoapWrapper implements CoapResponseListener {
 
 	private Socket socket;
 	private CoapClient coapClient;
 	private static final String protocol = "coap://";
+	private static final String errorCode = "10";
 	
 	public FhemCoapWrapper(Socket socket) {
 		this.socket = socket;
@@ -56,16 +54,22 @@ public class FhemCoapWrapper implements CoapResponseListener {
 			if (args.length < 2)
 				throw new ParseException("Request has incorrect syntax!");
 			
-			String method = args[0].toUpperCase();
+			String method = args[0];
+			method = method.toUpperCase();
 			
-			if (method.equalsIgnoreCase("set"))
+			if (method.equals("SET"))
 				method = CoapClient.PUT;
 			
-			String uri = protocol + args[1];		
-			coapClient.process(new String[]{ method, uri });
+			String uri = protocol + args[1];	
+			if (args.length > 2)
+				coapClient.process(new String[]{ method, uri, args[2] });
+			else
+				coapClient.process(new String[]{ method, uri });		
 		
 		} catch (Exception e) {
-			System.err.println("Error: " + e.getMessage());
+			String err = "unknow error while processing request";
+			sendResponse(errorCode, "", err);
+			System.err.println(err);
 		}		
 	}
 	
@@ -75,12 +79,9 @@ public class FhemCoapWrapper implements CoapResponseListener {
 	 * example: "2|[aaaa:0:0:0:221:2eff:ff00:1962]:5683/sensors/sht21_temperature|22,5�"
 	 */
 	@Override
-	public void notify(Response coapResponse, String method) {
-		
-		String responseFormat = "%s|%s|%s";
-		Request request = coapResponse.getRequest();
-		String uri = request.getUriHost() + request.getUriPath();
-		String returnCode = "10";
+	public void notify(String uri, String method, String msg) {
+			
+		String returnCode = "";
 		
 		if (method.equals(CoapClient.DISCOVER)) {	
 			
@@ -88,32 +89,37 @@ public class FhemCoapWrapper implements CoapResponseListener {
 			uri = uri.replace("/.well-known/core", "");
 			returnCode = "1";
 		}
-			
 		else if (method.equals(CoapClient.GET))
-			returnCode = "2";
-		
+			returnCode = "2";		
 		else if (method.equals(CoapClient.PUT))
-			returnCode = "3";
-		
+			returnCode = "3";		
 		else if (method.equals(CoapClient.OBSERVE))
 			returnCode = "4";
-				
-		String response = String.format(responseFormat, returnCode, uri, coapResponse.getPayloadString());
+		else if (method.equals(CoapClient.ERROR))
+			returnCode = "10";
+		
+		sendResponse(returnCode, uri, msg);
+	}
+
+	private void sendResponse(String returnCode, String uri, String msg) {
+		
+		String responseFormat = "%s|%s|%s";
+		String response = String.format(responseFormat, returnCode, uri, msg);
 		
 		if (socket != null) {
-			// Die R�ckgabe in einen Ausgabestream schreiben:			
+			
+			// Die Rückgabe in einen Ausgabestream schreiben:			
 			PrintWriter out = null;
 			try {
 				out = new PrintWriter(socket.getOutputStream(), true);
 			} catch (IOException e) {
-				System.err.println(e.getMessage());	
+				System.err.println(e.getMessage());
 			}
 			
 			// Antwort an FHEM Modul senden		
-			System.out.println("Antwort an FHEM senden");	
+			response = response.replace("\n", "").replace("\r", "");
+			System.out.println("Send to FHEM: " + response);	
 			out.println(response);
 		}
-		
-		System.out.println("Response received from CoAP Server: " + response);	
 	}
 }

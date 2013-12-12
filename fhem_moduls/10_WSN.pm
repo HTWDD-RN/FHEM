@@ -40,37 +40,51 @@ sub WSN_Initialize($) {
 ###############################################################
 sub WSN_Parse($$) {
 	
-	Log(3, "WSN_Parse called");
-	
 	my ($hash, $msg) = @_;
 	my @v = split('\|', $msg, 3);
 	
-	Log(3, "WSN_Parse, Code: $v[0], Uri: $v[1], Value: $v[2]");
+	Log(3, "WSN_Parse called");
+		
+	if (!$v[1]) {
+		Log(3, "no valid uri specified!");
+		return;
+	}
 	
 	# search for device	
-	my $def = $modules{WSN}{defptr}{$v[1]};
-	
-    if ($v[0] eq "WSN1") {
-		    
+	my $def = $modules{WSN}{defptr}{$v[1]};	
+		
+    if ($v[0] eq "WSN1") {		   
+    	 
 		Log(3, "discover response received"); 
 		  
 		# Discover resources and save to current config
 		DefineResources($v[1], $v[2]);
 		CommandSave(undef, "");		
     }
-    elsif($v[0] eq "WSN2") { 
-    	
-    	Log(3, "get response received");   
-    	
-    	# set get response
+    elsif($v[0] eq "WSN2") {     	
+
+    	Log(3, "get response received: $v[1] $v[2]");
 		$def->{STATE} = $v[2];	  		
     }
-	else {
-		Log(3, $v[0] . " is not a valid return code");			
-		$v[2] = "error";
+    elsif($v[0] eq "WSN3") {   	
+    	
+    	Log(3, "set response received");
+    	if ($v[2] eq "changed") {
+    		Log(3, "succesfully changed $v[1]");
+    		$def->{STATE} = "changed, please execute get";	   
+    	} 	
+    	else {
+    		Log(3, "can't set $v[1]: $v[2]");      		
+    	}
+    }
+    elsif($v[0] eq "WSN10") {   	    	
+    	Log(3, "error received: $v[1] => $v[2]"); 
+    }
+	else {		
+		Log(3, $v[0] . " is not a valid return code");
 	}	
 	
-	$def->{READINGS}{state}{TIME} = TimeNow();	 
+	$def->{READINGS}{state}{TIME} = TimeNow();	
 }
 
 ###############################################################
@@ -161,19 +175,14 @@ sub WSN_Set($@) {
 	my $v = join(" ", @a);
 	Log GetLogLevel($name,2), "WSN set $name $v";
 
-	my $cmd = "set|$hash->{URI}=$v";
+	my $cmd = "set|$hash->{URI}|$v"."\n";
   
 	IOWrite($hash, $cmd);
-	Log(3, "WSN set $hash->{NAME}");
-
 
 	# neue Geraetezustandsdaten setzen
 	$hash->{CHANGED}[0] = $v;
-	#$hash->{STATE} = $v;
-	#$hash->{RESOURCE} = "test";
 	$hash->{READINGS}{state}{TIME} = TimeNow();
-	$hash->{READINGS}{state}{VAL} = $v;
-  
+	
 	return "";
 }
 
