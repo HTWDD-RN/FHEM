@@ -126,7 +126,6 @@ sub DefineResources {
 	    		
     		if ($response =~ m/$attrRegex/gc) {
 	    		    		
-	    		    		Log(3, $1);	
 	    		# resource type as unit (e.g. Temperature-C Temperatur in °C)
 	    		DefineAttribute($1, $devname, "rt", "unit");
 	    		
@@ -135,9 +134,11 @@ sub DefineResources {
 	    		
 	    		# obs as observable
 	    		if (index($1, 'obs') != -1) {
+	    			Log(3, "$devname: observable=true");
 	    			CommandAttr(undef, "$devname observable true");
 	    		}
 	    		else {
+	    			Log(3, "$devname: observable=false");
 	    			CommandAttr(undef, "$devname observable false");
 	    		}
     		}
