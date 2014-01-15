@@ -26,7 +26,7 @@ sub WSN_Initialize($) {
 	$hash->{GetFn}     = "WSN_Get";
 	$hash->{SetFn}     = "WSN_Set";
 	$hash->{IODev}	 = "WSNPHD"; #hw-modul
-	$hash->{AttrList}  = "loglevel:0,1,2,3,4,5,6 setList unit model:"
+	$hash->{AttrList}  = "loglevel:0,1,2,3,4,5,6 setList unit model observable:"
 						.join(",", sort keys %models);
 							
 	$hash->{ParseFn}   = "WSN_Parse";
@@ -55,7 +55,7 @@ sub WSN_Parse($$) {
 		
     if ($v[0] eq "WSN1") {		   
     	 
-		Log(3, "discover response received"); 
+		Log(3, "discover response received: $v[2]"); 
 		  
 		# Discover resources and save to current config
 		DefineResources($v[1], $v[2]);
@@ -125,12 +125,21 @@ sub DefineResources {
 			my $attrRegex = "(?<=" . $uri . ")(.*?)(?=</|\n)";
 	    		
     		if ($response =~ m/$attrRegex/gc) {
-	    		    			
+	    		    		
+	    		    		Log(3, $1);	
 	    		# resource type as unit (e.g. Temperature-C Temperatur in °C)
 	    		DefineAttribute($1, $devname, "rt", "unit");
 	    		
 	    		# title as comment
 	    		DefineAttribute($1, $devname, "title", "comment");
+	    		
+	    		# obs as observable
+	    		if (index($1, 'obs') != -1) {
+	    			CommandAttr(undef, "$devname observable true");
+	    		}
+	    		else {
+	    			CommandAttr(undef, "$devname observable false");
+	    		}
     		}
         }
 	}    
@@ -186,6 +195,7 @@ sub WSN_Set($@) {
 	return "";
 }
 
+
 ###############################################################
 # WSN_Get
 #
@@ -197,15 +207,40 @@ sub WSN_Get($@) {
 	
 	Log(3, "WSN_Get called");	
 	my ($hash, @a) = @_;
+	my $getCommand = "get|$hash->{URI}"."\n";
 	
-	if(@a < 2) {
-		# Nachricht fuer CoAP-Client zusammensetzen
-		my $cmd = "get|$hash->{URI}"."\n";
-    # Nachricht an CoAP-Client senden
-		IOWrite($hash, $cmd);		
-	}
+	# Get
+	if(@a == 1) {
+		Log(3, @a);
 
-	return "Current value for $hash->{NAME} requested.";	
+    	# Nachricht an CoAP-Client senden
+		IOWrite($hash, $getCommand);		
+		return "Current value for $hash->{NAME} requested";
+	}
+	# Observe
+	elsif (@a == 2) {
+
+		my $result = "";
+
+		if ($a[1] eq "observe=1") {				
+			$result = "Try subscribe $hash->{NAME} for observe";
+			my $observeCommand = "observe|$hash->{URI}"."\n";
+			
+			# Nachricht an CoAP Client schicken
+			IOWrite($hash, $observeCommand);
+		}		
+		elsif($a[1] eq "observe=0") {
+			$result = "Try unsubscribe $hash->{NAME} from observe";
+			
+			# Nachricht an CoAP Client schicken
+			IOWrite($hash, $getCommand);
+		}
+		else {
+			return "Unknow command parameter, try observe=1 to subscribe resource or observe=0 to unsubscribe";
+		}
+
+		return $result;
+	}
 }
 
 ###############################################################

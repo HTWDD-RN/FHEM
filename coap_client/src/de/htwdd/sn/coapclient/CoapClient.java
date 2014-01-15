@@ -38,14 +38,13 @@ import java.util.logging.Level;
 
 import ch.ethz.inf.vs.californium.coap.DELETERequest;
 import ch.ethz.inf.vs.californium.coap.GETRequest;
-import ch.ethz.inf.vs.californium.coap.Option;
 import ch.ethz.inf.vs.californium.coap.POSTRequest;
 import ch.ethz.inf.vs.californium.coap.PUTRequest;
 import ch.ethz.inf.vs.californium.coap.Request;
 import ch.ethz.inf.vs.californium.coap.Response;
+import ch.ethz.inf.vs.californium.coap.ResponseHandler;
 import ch.ethz.inf.vs.californium.coap.TokenManager;
 import ch.ethz.inf.vs.californium.coap.registries.MediaTypeRegistry;
-import ch.ethz.inf.vs.californium.coap.registries.OptionNumberRegistry;
 import ch.ethz.inf.vs.californium.endpoint.resources.RemoteResource;
 import ch.ethz.inf.vs.californium.endpoint.resources.Resource;
 import ch.ethz.inf.vs.californium.util.Log;
@@ -72,7 +71,7 @@ import ch.ethz.inf.vs.californium.coap.registries.CodeRegistry;
  * 
  * @author Dominique Im Obersteg, Daniel Pauli, and Matthias Kovatsch
  */
-public class CoapClient {
+public class CoapClient implements ResponseHandler {
 
 	// Our collection of classes that are subscribed as listeners of our
 	protected  CoapResponseListener listener;
@@ -176,8 +175,8 @@ public class CoapClient {
 		}
 
 		if (method.equals(OBSERVE)) {
-			request.setOption(new Option(0, OptionNumberRegistry.OBSERVE));
-			loop = true;
+			request.setObserve();					
+			request.registerResponseHandler(this);
 		}
 
 		// set request URI
@@ -326,5 +325,15 @@ public class CoapClient {
 		} else {
 			return null;
 		}
+	}
+
+	//handle Observe responses
+	@Override
+	public void handleResponse(Response response) {
+		Request request = response.getRequest();
+		listener.notify(
+				request.getUriHost() + request.getUriPath(), 
+				OBSERVE, 
+				response.getPayloadString());	
 	}
 }

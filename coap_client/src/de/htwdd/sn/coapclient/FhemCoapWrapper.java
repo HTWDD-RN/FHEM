@@ -54,18 +54,25 @@ public class FhemCoapWrapper implements CoapResponseListener {
 			if (args.length < 2)
 				throw new ParseException("Request has incorrect syntax!");
 			
-			String method = args[0];
-			method = method.toUpperCase();
+			String method = args[0].toUpperCase();
+			String uri = protocol + args[1];
+						
+			//Execute CoAP-GET or DISCOVER
+			if (method.equals(CoapClient.GET) || method.equals(CoapClient.DISCOVER))
+				coapClient.process(new String[]{ method, uri });
 			
-			if (method.equals("SET"))
-				method = CoapClient.PUT;
+			//Execute CoAP-PUT Request
+			else if (method.equals("SET") && args.length > 2) 
+				coapClient.process(new String[]{ CoapClient.PUT, uri, args[2] });
 			
-			String uri = protocol + args[1];	
-			if (args.length > 2)
-				coapClient.process(new String[]{ method, uri, args[2] });
+			//Execute GET-Request with observe option
+			else if (method.equals(CoapClient.OBSERVE)) 
+				coapClient.process(new String[]{ CoapClient.OBSERVE, uri });	
+			
+			// Send error
 			else
-				coapClient.process(new String[]{ method, uri });		
-		
+				sendResponse(errorCode, "", "Unknow CoAP Method");
+			
 		} catch (Exception e) {
 			String err = "unknow error while processing request";
 			sendResponse(errorCode, "", err);
@@ -94,7 +101,7 @@ public class FhemCoapWrapper implements CoapResponseListener {
 		else if (method.equals(CoapClient.PUT))
 			returnCode = "3";		
 		else if (method.equals(CoapClient.OBSERVE))
-			returnCode = "4";
+			returnCode = "2";
 		else if (method.equals(CoapClient.ERROR))
 			returnCode = "10";
 		
