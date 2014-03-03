@@ -70,8 +70,7 @@ sub WSN_Parse($$) {
     	
     	Log(3, "set response received");
     	if ($v[2] eq "changed") {
-    		Log(3, "succesfully changed $v[1]");
-    		$def->{STATE} = "changed, please execute get";	   
+    		Log(3, "succesfully changed $v[1]");   
     	} 	
     	else {
     		Log(3, "can't set $v[1]: $v[2]");      		
@@ -178,22 +177,33 @@ sub WSN_Set($@) {
 	my $name = shift @a;
 
 	# pruefen der uebergebenen Parameter
-	return "no set value specified" if(int(@a) < 1);
+	return "wrong set syntax, try set <wsn_name> [query_parameter] <payload>" if(int(@a) < 1 || int(@a) > 2);
 	my $setList = AttrVal($name, "setList", "*");
 	return "Unknown argument ?, choose one of $setList" if($a[0] eq "?");
 
 	my $v = join(" ", @a);
+
 	Log GetLogLevel($name,2), "WSN set $name $v";
 
-	my $cmd = "set|$hash->{URI}|$v"."\n";
-  
-	IOWrite($hash, $cmd);
-
+	# payload
+	if (int(@a) == 1) {
+		my $cmd = "set|$hash->{URI}|$v"."\n";
+		Log(3, $cmd);
+		IOWrite($hash, $cmd);	
+	}
+	
+	# payload and query parameter
+	elsif(int(@a) == 2) {		
+		my $cmd = "set|$hash->{URI}?$a[0]|$a[1]"."\n";
+		Log(3, $cmd);
+		IOWrite($hash, $cmd);
+	}
+	
 	# neue Geraetezustandsdaten setzen
 	$hash->{CHANGED}[0] = $v;
 	$hash->{READINGS}{state}{TIME} = TimeNow();
 	
-	return "";
+	return "Try set $name $v";
 }
 
 
