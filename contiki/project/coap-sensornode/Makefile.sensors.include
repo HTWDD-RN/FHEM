@@ -23,6 +23,9 @@ CFLAGS += -DF_SCL=100000UL # 100kHz, tested
 # sources (core)
 CONTIKI_SOURCEFILES += sensors.c
 
+# sources (project)
+#CONTIKI_SOURCEFILES += sensor-control.c
+
 # activate Process Sensor Control Debug Prints
 #CFLAGS += -DSENSOR_CONTROL_DEBUG=1
 
