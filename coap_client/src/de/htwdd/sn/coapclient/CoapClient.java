@@ -34,16 +34,10 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.UnknownHostException;
+import java.util.*;
 import java.util.logging.Level;
 
-import ch.ethz.inf.vs.californium.coap.DELETERequest;
-import ch.ethz.inf.vs.californium.coap.GETRequest;
-import ch.ethz.inf.vs.californium.coap.POSTRequest;
-import ch.ethz.inf.vs.californium.coap.PUTRequest;
-import ch.ethz.inf.vs.californium.coap.Request;
-import ch.ethz.inf.vs.californium.coap.Response;
-import ch.ethz.inf.vs.californium.coap.ResponseHandler;
-import ch.ethz.inf.vs.californium.coap.TokenManager;
+import ch.ethz.inf.vs.californium.coap.*;
 import ch.ethz.inf.vs.californium.coap.registries.MediaTypeRegistry;
 import ch.ethz.inf.vs.californium.endpoint.resources.RemoteResource;
 import ch.ethz.inf.vs.californium.endpoint.resources.Resource;
@@ -81,7 +75,7 @@ public class CoapClient implements ResponseHandler {
 
 	private static final int IDX_METHOD = 0;
 	private static final int IDX_URI = 1;
-	private static final int IDX_PAYLOAD = 2;
+	private static final int IDX_PAYLOAD_OPTIONS = 2;
 
 	public static final String GET = "GET";
 	public static final String PUT = "PUT";
@@ -90,6 +84,8 @@ public class CoapClient implements ResponseHandler {
 	public static final String POST = "POST";
 	public static final String DELETE = "DELETE";
 	public static final String ERROR = "ERROR";
+
+	private static Map<String, byte[]> observeTokens = new HashMap<String, byte[]>();
 	
 	// Method for listener classes to register themselves
 	public CoapClient(CoapResponseListener listener) {
@@ -99,69 +95,25 @@ public class CoapClient implements ResponseHandler {
 	/*
 	 * process request
 	 */
-	public void process(String[] args) {
-
-		// initialize parameters
-		String method = null;
-		URI uri = null;
-		String payload = null;
-		boolean loop = false;
+	public void process(String method, URI uri, List<Option> options, String payload, boolean waitForMultipleResponses) {
 		Response response = null;
 		String error = "";
-
-		// display help if no parameters specified
-		if (args.length == 0)
-			return;
 
 		Log.setLevel(Level.ALL);
 		Log.init();
 
-		// input parameters
-		int idx = 0;
-		for (String arg : args) {
-			if (arg.startsWith("-")) {
-				if (arg.equals("-l")) {
-					loop = true;
-				} else {
-					System.out.println("Unrecognized option: " + arg);
-				}
-			} else {
-				switch (idx) {
-				case IDX_METHOD:
-					method = arg.toUpperCase();
-					break;
-				case IDX_URI:
-					try {
-						uri = new URI(arg);
-					} catch (URISyntaxException e) {
-						error = "Failed to parse URI: " + e.getMessage();
-						System.err.println(error);
-						listener.notify("", ERROR, error);
-						return;
-					}
-					break;
-				case IDX_PAYLOAD:
-					payload = arg;
-					break;
-				default:
-					System.out.println("Unexpected argument: " + arg);
-				}
-				++idx;
-			}
-		}
-		
-		if (uri == null) {
-			error = "URI not specified";
-			System.err.println(error);
-			listener.notify("", ERROR, error);
-			return;
-		}
-
 		// check if mandatory parameters specified
 		if (method == null) {
 			error = "Method not specified";
-			listener.notify(uri.toString(), ERROR, error);
+			listener.notify(uri.toString(), ERROR, error, null);
 			System.err.println(error);
+			return;
+		}
+
+		if (uri == null) {
+			error = "URI not specified";
+			System.err.println(error);
+			listener.notify("", ERROR, error, null);
 			return;
 		}
 
@@ -170,13 +122,8 @@ public class CoapClient implements ResponseHandler {
 		if (request == null) {
 			error = "Unknown method: " + method;
 			System.err.println(error);
-			listener.notify(uri.toString(), ERROR, error);
+			listener.notify(uri.toString(), ERROR, error, null);
 			return;
-		}
-
-		if (method.equals(OBSERVE)) {
-			request.setObserve();					
-			request.registerResponseHandler(this);
 		}
 
 		// set request URI
@@ -192,7 +139,7 @@ public class CoapClient implements ResponseHandler {
 				
 				error = "Failed to parse URI: " + e.getMessage();
 				System.err.println(error);
-				listener.notify(uri.toString(), ERROR, error);
+				listener.notify(uri.toString(), ERROR, error, null);
 				return;
 			}
 		}
@@ -202,105 +149,131 @@ public class CoapClient implements ResponseHandler {
 		request.setToken(TokenManager.getInstance().acquireToken());
 		request.setContentType(MediaTypeRegistry.TEXT_PLAIN);
 
-		// enable response queue in order to use blocking I/O
-		request.enableResponseQueue(true);
-		request.prettyPrint();
-
-		// execute request
-		try {
-			request.execute();
-
-			// loop for receiving multiple responses
-			do {
-
-				// receive response
-				System.out.println("Receiving response...");
-
-				try {
-					response = request.receiveResponse();
-				} catch (InterruptedException e) {
-					error = "Failed to receive response: " + e.getMessage();
-					System.err.println(error);
-					listener.notify(uri.toString(), ERROR, error);
-					return;
+		boolean isDeObserve = false;
+		boolean isExecutable = true;
+		for(Option option : options)
+			if(option.getOptionNumber() == 6){
+				if(option.getIntValue() == 0) {
+					request.setObserve();
+					request.registerResponseHandler(this);
+					if(!observeTokens.containsKey(uri.toASCIIString()))
+						observeTokens.put(uri.toASCIIString(), request.getToken());
+					else
+						isExecutable = false;
+				} else if(option.getIntValue() == 1) {
+					if(observeTokens.containsKey(uri.toASCIIString())) {
+						request.setToken(observeTokens.get(uri.toASCIIString()));
+						observeTokens.remove(uri.toASCIIString());
+						isDeObserve = true;
+					} else
+						isExecutable = false;
 				}
+			}
 
-				// output response
-				if (response != null) {
+		if(isExecutable) {
+			request.setOptions(options);
 
-					response.prettyPrint();
-					System.out.println("Time elapsed (ms): "
-							+ response.getRTT());
-					
-					if (response.getCode() == CodeRegistry.RESP_FORBIDDEN
-							|| response.getCode() == CodeRegistry.RESP_METHOD_NOT_ALLOWED) {
-						listener.notify(
-								request.getUriHost() + request.getUriPath()
-								,ERROR 
-								,"METHOD " + method + " is not allowed");
-					}
-					else if (response.getCode() == CodeRegistry.RESP_CHANGED) {
-						listener.notify(
-								request.getUriHost() + request.getUriPath()
-								,method 
-								,"changed");	
-					}
-					else {
-						listener.notify(
-								request.getUriHost() + request.getUriPath(), 
-								method, 
-								response.getPayloadString());	
-					}
+			// enable response queue in order to use blocking I/O
+			if (!isDeObserve)
+				request.enableResponseQueue(true);
+			request.prettyPrint();
 
-					// check of response contains resources
-					if (response.getContentType() == MediaTypeRegistry.APPLICATION_LINK_FORMAT) {
+			// execute request
+			try {
+				request.execute();
+				if (!isDeObserve) {
+					// loop for receiving multiple responses
+					do {
 
-						String linkFormat = response.getPayloadString();
+						// receive response
+						System.out.println("Receiving response...");
 
-						// create resource three from link format
-						Resource root = RemoteResource.newRoot(linkFormat);
-						if (root != null) {
+						try {
+							response = request.receiveResponse();
+						} catch (InterruptedException e) {
+							error = "Failed to receive response: " + e.getMessage();
+							System.err.println(error);
+							listener.notify(uri.toString(), ERROR, error, null);
+							return;
+						}
 
-							// output discovered resources
-							System.out.println("\nDiscovered resources:");
-							root.prettyPrint();
+						// output response
+						if (response != null) {
+
+							response.prettyPrint();
+							System.out.println("Time elapsed (ms): "
+									+ response.getRTT());
+
+							if (response.getCode() == CodeRegistry.RESP_FORBIDDEN
+									|| response.getCode() == CodeRegistry.RESP_METHOD_NOT_ALLOWED) {
+								listener.notify(
+										request.getUriHost() + request.getUriPath()
+										, ERROR
+										, "METHOD " + method + " is not allowed", null);
+							} else if (response.getCode() == CodeRegistry.RESP_CHANGED) {
+								listener.notify(
+										request.getUriHost() + request.getUriPath()
+										, method
+										, "changed", null);
+							} else {
+								listener.notify(
+										request.getUriHost() + request.getUriPath(),
+										method,
+										response.getPayloadString(),
+										convertOptionList(response.getOptions()));
+							}
+
+							// check of response contains resources
+							if (response.getContentType() == MediaTypeRegistry.APPLICATION_LINK_FORMAT) {
+
+								String linkFormat = response.getPayloadString();
+
+								// create resource three from link format
+								Resource root = RemoteResource.newRoot(linkFormat);
+								if (root != null) {
+
+									// output discovered resources
+									System.out.println("\nDiscovered resources:");
+									root.prettyPrint();
+
+								} else {
+									error = "Failed to parse link format";
+									System.err.println(error);
+									listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error, null);
+								}
+							} else {
+
+								// check if link format was expected by client
+								if (method.equals(DISCOVER)) {
+									error = "Server error: Link format not specified";
+									System.err.println(error);
+									listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error, null);
+								}
+							}
 
 						} else {
-							error = "Failed to parse link format";
+
+							error = "Request timed out";
+							listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error, null);
+
+							// no response received
 							System.err.println(error);
-							listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
+							break;
 						}
-					} else {
 
-						// check if link format was expected by client
-						if (method.equals(DISCOVER)) {
-							error = "Server error: Link format not specified";
-							System.err.println(error);
-							listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
-						}
-					}
-
-				} else {
-
-					error = "Request timed out";
-					listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
-					
-					// no response received
-					System.err.println(error);
-					break;
+					} while (waitForMultipleResponses);
 				}
 
-			} while (loop);
+			} catch (UnknownHostException e) {
+				error = "Unknown host: " + e.getMessage();
+				System.err.println(error);
+				listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error, null);
 
-		} catch (UnknownHostException e) {
-			error = "Unknown host: " + e.getMessage();
-			System.err.println(error);
-			listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
-		
-		} catch (IOException e) {
-			error = "Failed to execute request: " + e.getMessage();
-			System.err.println(error);
-			listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error);
+			} catch (IOException e) {
+				error = "Failed to execute request: " + e.getMessage();
+				System.err.println(error);
+				listener.notify(request.getUriHost() + request.getUriPath(), ERROR, error, null);
+			}
 		}
 	}
 
@@ -334,6 +307,17 @@ public class CoapClient implements ResponseHandler {
 		listener.notify(
 				request.getUriHost() + request.getUriPath(), 
 				OBSERVE, 
-				response.getPayloadString());	
+				response.getPayloadString(),
+				convertOptionList(response.getOptions()));
+	}
+
+	private HashMap<String, String> convertOptionList(List<Option> options) {
+		HashMap<String, String> hashOptions = new HashMap<>();
+		Iterator iterator = options.iterator();
+		while(iterator.hasNext()) {
+			Option option = (Option)iterator.next();
+			hashOptions.put(option.getName(), option.toString());
+		}
+		return hashOptions;
 	}
 }

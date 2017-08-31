@@ -26,8 +26,9 @@ sub WSN_Initialize($) {
 	$hash->{GetFn}     = "WSN_Get";
 	$hash->{SetFn}     = "WSN_Set";
 	$hash->{IODev}	 = "WSNPHD"; #hw-modul
-	$hash->{AttrList}  = "loglevel:0,1,2,3,4,5,6 setList unit model observable:"
-						.join(",", sort keys %models);
+	$hash->{AttrList}  = "loglevel:0,1,2,3,4,5,6 setList unit model 
+												optionMaxAge optionObserve observable:"
+												.join(",", sort keys %models);
 							
 	$hash->{ParseFn}   = "WSN_Parse";
 }
@@ -41,7 +42,7 @@ sub WSN_Initialize($) {
 sub WSN_Parse($$) {
 	
 	my ($hash, $msg) = @_;
-	my @v = split('\|', $msg, 3);
+	my @v = split('\|', $msg, 4);
 	
 	Log(3, "WSN_Parse called");
 		
@@ -62,9 +63,23 @@ sub WSN_Parse($$) {
 		CommandSave(undef, "");		
     }
     elsif($v[0] eq "WSN2") {     	
-
     	Log(3, "get response received: $v[1] $v[2]");
-		$def->{STATE} = $v[2];	  		
+			$def->{STATE} = $v[2];	
+
+			if ($v[3]) {
+				# Nach 'observe'-Option und 'max-age'-Option in Response-   
+				# String suchen und als Attribut dem WSN-Device hinzufügen
+				# Andere Options werden bis jetzt ignoriert
+				foreach (split('\|', $v[3])) {
+					if($_ =~ /(max-age)=([0-9]+)/) {
+						Log(3, "add max-age attribute with value $2 to wsn-device $def->{NAME}");
+						CommandAttr(undef, $def->{NAME} . " optionMaxAge " . $2);
+					} elsif ($_ =~ /(observe)=([0-9]+)/) {
+						Log(3, "add observe attribute with value $2 to wsn-device $def->{NAME}");
+						CommandAttr(undef, $def->{NAME} . " optionObserve " . $2);
+					}
+				}
+			}  		
     }
     elsif($v[0] eq "WSN3") {   	
     	
@@ -218,14 +233,13 @@ sub WSN_Get($@) {
 	
 	Log(3, "WSN_Get called");	
 	my ($hash, @a) = @_;
-	my $getCommand = "get|$hash->{URI}"."\n";
-	
+			
 	# Get
 	if(@a == 1) {
 		Log(3, @a);
 
-    	# Nachricht an CoAP-Client senden
-		IOWrite($hash, $getCommand);		
+    # Nachricht an CoAP-Client senden
+		IOWrite($hash, BuildCoAPClientGetCommand($hash->{URI}, GetCoAPOptions($hash->{NAME}))."\n");		
 		return "Current value for $hash->{NAME} requested";
 	}
 	# Observe
@@ -235,16 +249,16 @@ sub WSN_Get($@) {
 
 		if ($a[1] eq "observe=1") {				
 			$result = "Try subscribe $hash->{NAME} for observe";
-			my $observeCommand = "observe|$hash->{URI}"."\n";
-			
+			CommandAttr(undef, $hash->{NAME} . " optionObserve 0");
+
 			# Nachricht an CoAP Client schicken
-			IOWrite($hash, $observeCommand);
+			IOWrite($hash, BuildCoAPClientGetCommand($hash->{URI}, GetCoAPOptions($hash->{NAME}))."\n");
 		}		
 		elsif($a[1] eq "observe=0") {
 			$result = "Try unsubscribe $hash->{NAME} from observe";
-			
+			CommandAttr(undef, $hash->{NAME} . " optionObserve 1");
 			# Nachricht an CoAP Client schicken
-			IOWrite($hash, $getCommand);
+			IOWrite($hash, BuildCoAPClientGetCommand($hash->{URI}, GetCoAPOptions($hash->{NAME}))."\n");
 		}
 		else {
 			return "Unknow command parameter, try observe=1 to subscribe resource or observe=0 to unsubscribe";
@@ -355,6 +369,42 @@ sub GetIPv6Regex() {
     $IPv6_re = qr/$IPv6_re/;
     
    	return $IPv6_re;
+}
+
+sub GetCoAPOptions {
+	my ($resourceName) = @_;
+  my %options = (
+        "optionObserve"  => "",
+        "optionMaxAge" => "",
+	);
+	for my $optName (keys %options) {
+		my $value = AttrVal($resourceName, $optName, "-1");
+		if($value == "-1") {
+			delete($options{$optName});
+		} else {
+			$options{$optName} = $value;
+		}
+	}
+	return %options;
+}
+
+sub BuildCoAPClientGetCommand {
+	my ($uri, %options) = @_;
+	my $getCommand = "get|".$uri;
+	
+	for my $optName (keys %options) {
+		$getCommand .= "|".MapCoAPOptionName($optName)."=".$options{$optName};
+	}
+	return $getCommand;
+}
+
+sub MapCoAPOptionName {
+	my ($optionName) = @_;
+  my %optionMap = (
+        "optionObserve"  => "observe",
+        "optionMaxAge" => "max-age",
+	);
+	return $optionMap{$optionName};
 }
 
 1; # warum???

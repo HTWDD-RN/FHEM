@@ -46,9 +46,9 @@ sub WSNPHD_Initialize($) {
 	$hash->{GetFn}   = "WSNPHD_Get";
 	$hash->{SetFn}   = "WSNPHD_Set";
 	$hash->{DefFn}   = "WSNPHD_Define";	
-    $hash->{AttrList}  = "loglevel:0,1,2,3,4,5,6 setList";
+  $hash->{AttrList}  = "loglevel:0,1,2,3,4,5,6 setList";
     
-    # definieren aller logischen Module, die WSNPHD nutzen duerfen
+  # definieren aller logischen Module, die WSNPHD nutzen duerfen
 	$hash->{Clients} = ":WSN:";
 	
 	# zum matchen
@@ -62,7 +62,7 @@ sub WSNPHD_Initialize($) {
 # WSNPHD_Define
 #
 # wird von FHEM gerufen, sobald ein neues Geraet angelegt wurde.
-# Es wird geprueft, ob die Anahl der Parameter stimmt. Ausserdem
+# Es wird geprueft, ob die Anzahl der Parameter stimmt. Ausserdem
 # werden die Eigenschaften des neuen FHEM-Geraetes gesetzt.
 ###############################################################
 sub WSNPHD_Define($$) {

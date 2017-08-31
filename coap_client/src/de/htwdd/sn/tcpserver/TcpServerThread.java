@@ -45,7 +45,7 @@ public class TcpServerThread implements Runnable {
 							new InputStreamReader(clientSocket.getInputStream()));
 
 					// Reqeust an FHEM Coap Client absetzen und auf Antwort warten
-					fhemClient.request(in.readLine().toString());
+					fhemClient.request(in.readLine().toString(), false);
 				}
 			} catch (IOException e) {
 				System.out.println("Fehler bei binden von Socket an Port "
