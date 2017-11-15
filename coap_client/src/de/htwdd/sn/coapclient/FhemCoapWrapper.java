@@ -66,8 +66,12 @@ public class FhemCoapWrapper implements CoapResponseListener {
 		try {
 			String method = parseMethod(requestParts[0]);
 			URI uri = parseURI(requestParts[1]);
-			List<Option> options = parseOptions(requestParts[2]);
-			String payload = parsePayload(requestParts[2]);
+			List<Option> options = new ArrayList<Option>();
+			String payload = "";
+			if(requestParts.length > 2) {
+				options = parseOptions(requestParts[2]);
+				payload = parsePayload(requestParts[2]);
+			}
 			coapClient.process(method, uri, options, payload, waitForMultipleResponses);
 		} catch (IllegalArgumentException iex) {
 			sendResponse(errorCode, "", "Unknow CoAP Method", null);
