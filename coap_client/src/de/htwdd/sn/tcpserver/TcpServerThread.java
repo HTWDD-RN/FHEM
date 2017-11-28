@@ -52,6 +52,7 @@ public class TcpServerThread implements Runnable {
 						+ port + " " + e.getMessage());
 			} catch (Exception e) {
 				System.out.println("Fehler im Thread:" + e.getMessage());
+				break;
 			}
 		}
 	}

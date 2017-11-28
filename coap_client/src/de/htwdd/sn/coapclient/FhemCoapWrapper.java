@@ -155,19 +155,19 @@ public class FhemCoapWrapper implements CoapResponseListener {
 		String[] parts = request.split("\\|");
 		if (parts.length < 2)
 			throw new ParseException("Request has incorrect syntax!");
-		if(parts[0].equals("SET")) parts[0] = "PUT";
+		if(parts[0].toUpperCase().equals("SET")) parts[0] = "PUT";
 		else parts[0] = parts[0].toUpperCase();
 		parts[1] = protocol + parts[1];
-		String options = new String();
+		String keyvalues = new String();
 		if(parts.length > 2){
 			for(int i = 2; i < parts.length; i++) {
-				if(parts[i].contains("observe=") || parts[i].contains("max-age=")) {
-					if(!options.isEmpty())
-						options += "|";
-					options += parts[i];
+				if(parts[i].contains("=")){
+					if(!keyvalues.isEmpty())
+						keyvalues += "|";
+					keyvalues += parts[i];
 				}
 			}
-			parts[2] = options;
+			parts[2] = keyvalues;
 		}
 		return parts;
 	}
